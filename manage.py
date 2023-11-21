@@ -3,6 +3,7 @@
 import os
 import sys
 
+os.environ["CLOUDINARY_URL"] = "cloudinary://964164456596654:3YgyqVKbspTogcGfdmZsGjG4KGU@dccc1wpyc"
 
 def main():
     """Run administrative tasks."""
