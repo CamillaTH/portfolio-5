@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #'django.contrib.sites',# crashes when runing migrate,
+    'django.contrib.sites',
     'cloudinary_storage',
     'cloudinary',
     'allauth',
@@ -96,7 +96,7 @@ ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
 ACCOUNT_USERNAME_MIN_LENGTH = 4
 LOGIN_URL = '/accounts/login/'
-LOGIN_REDIRECT_URL = '/sucess'
+LOGIN_REDIRECT_URL = '/'
 
 WSGI_APPLICATION = 'portfolio5.wsgi.application'
 #AUTH_USER_MODEL = 'users.CustomUser'
