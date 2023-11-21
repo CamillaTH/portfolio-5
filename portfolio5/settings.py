@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #'django.contrib.sites', crashes when runing migrate,
+    #'django.contrib.sites',# crashes when runing migrate,
     'cloudinary_storage',
     'cloudinary',
     'allauth',
@@ -89,7 +89,7 @@ AUTHENTICATION_BACKENDS = [
 SITE_ID = 1
 
 WSGI_APPLICATION = 'portfolio5.wsgi.application'
-
+#AUTH_USER_MODEL = 'users.CustomUser'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
