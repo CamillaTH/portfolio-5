@@ -18,7 +18,6 @@ if os.path.isfile('env.py'):
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
@@ -29,7 +28,7 @@ SECRET_KEY = 'django-insecure-=6+s7qjfo!l401tw^$j58z#+=6nw^%ss6n^s*rbnrktr8@njdg
 DEBUG = True
 
 ALLOWED_HOSTS = ['8000-camillath-portfolio5-ppnv5kx85p3.ws-eu106.gitpod.io']
-
+CSRF_TRUSTED_ORIGINS = ['https://8000-camillath-portfolio5-ppnv5kx85p3.ws-eu106.gitpod.io']
 
 # Application definition
 
@@ -41,11 +40,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
-    'cloudinary_storage',
-    'cloudinary',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'cloudinary_storage',
+    'cloudinary',
     'crispy_forms',
     'crispy_bootstrap5',
     'bootstrap5',
@@ -73,7 +72,10 @@ ROOT_URLCONF = 'portfolio5.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates'),
+            os.path.join(BASE_DIR, 'templates', 'allauth'),
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
