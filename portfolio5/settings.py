@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-=6+s7qjfo!l401tw^$j58z#+=6nw^%ss6n^s*rbnrktr8@njdg
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-camillath-portfolio5-ppnv5kx85p3.ws-eu106.gitpod.io']
+ALLOWED_HOSTS = ['8000-camillath-portfolio5-tqyxofubj3n.ws-eu107.gitpod.io']
 CSRF_TRUSTED_ORIGINS = ['https://8000-camillath-portfolio5-ppnv5kx85p3.ws-eu106.gitpod.io']
 
 # Application definition
