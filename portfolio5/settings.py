@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     'cloudinary',
     'crispy_forms',
     'crispy_bootstrap5',
-    'bootstrap5',
+   # 'bootstrap5',
     'django_summernote',
     'portfolio5',
 ]
