@@ -50,6 +50,7 @@ INSTALLED_APPS = [
    # 'bootstrap5',
     'django_summernote',
     'portfolio5',
+    'home',
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
