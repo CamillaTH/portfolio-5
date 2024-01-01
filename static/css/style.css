@@ -21,3 +21,7 @@ a {
 .navbar .navbar-brand .logo-image {
     width: 80px;
   }
+
+.nav-link {
+    color:#0d67b4;
+}
