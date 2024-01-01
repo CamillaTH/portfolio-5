@@ -31,7 +31,6 @@
                         <div class="input-group input-group-lg">
                             <input name="search" type="search" class="form-control" id="search-products" placeholder="Search products"
                                 aria-label="Search">
-        
                             <button type="submit" class="form-control" id="submit">
                                 <i class="fa-brands fa-searchengin fa-flip fa-xl" style="color: #D4DCDE;"></i>
                             </button>
@@ -46,9 +45,6 @@
                         <ul class="navbar-nav ms-lg-auto">
                             <li class="nav-item">
                                 <a class="nav-link active" href="/">Home</a>
-                            </li>
-                            <li class="nav-item ">
-                                <i class="fa-solid fa-cart-shopping"></i>
                             </li>
                             {% if user.is_authenticated %}
                             <li class="nav-item">
@@ -65,6 +61,16 @@
                                 <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
                             </li>
                             {% endif %}
+                            <li class="nav-item ">
+                                <a href="">
+                                    <div class="text-center">
+                                        <div><i class="fa-solid fa-cart-shopping"></i></div>
+                                        <p class="cart-price">
+                                            0.00
+                                        </p>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
