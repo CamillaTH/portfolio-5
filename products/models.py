@@ -12,7 +12,7 @@ class Category(models.Model):
     def get_user_friendly_name(self):
         return self.user_friendly_name
 
-class ProductModel(models.Model):
+class Product(models.Model):
     '''Model that holds information about products'''
     category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)
     name = models.CharField(max_length=270)
