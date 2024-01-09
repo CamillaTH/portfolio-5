@@ -17,7 +17,7 @@
         <div class="row">
             <div class="col text-center">
                 <!-- Shows the total amount of products on the store--->
-                <h3><strong>{{ products.count }}</strong> Products</h3>
+                <h3>Showing <span class="bold">{{ products.count }}</span> Products</h3>
             </div>
         </div>
         <!-- renders all the product cards with information about every product --->
@@ -32,7 +32,7 @@
                         {% endif %}
                         <div class="card-body">
                             <h5 class="card-title">{{ product.name }}</h5>
-                            <p class="card-text">Price: {{ product.price }}</p>
+                            <p class="card-text card-price">Price: <span class="price">{{ product.price }}</span> SEK</p>
                             {% if product.rating %}
                                 <p class="card-text">Rating: {{ product.rating }}</p>
                             {% else %}

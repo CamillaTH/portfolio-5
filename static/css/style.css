@@ -12,6 +12,10 @@ body {
 a {
     text-decoration: none;
 }
+.bold
+{
+    font-weight: bold;
+}
 
 /* Navbar */
 .nav-item{
@@ -36,4 +40,12 @@ a {
     background: #FFFFFF;
     z-index: -1;
     position: fixed;
+}
+
+.card {
+    color:#0d67b4;
+}
+
+.card-price .price{
+    font-size: 1.8rem;
 }
