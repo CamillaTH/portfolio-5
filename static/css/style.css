@@ -42,6 +42,31 @@ button:hover {
 }
 
 /* Navbar */
+.products-nav {
+    text-align: center;
+}
+
+.products-nav {
+    position: absolute;
+    background-color: white;
+    z-index: 1000; 
+}
+
+.sorting-button {
+    background-color: #007bff; 
+    color: white; 
+}
+
+#filterCollapse {
+    background-color: #FFFFFF;
+    border: 1px solid #ddd; 
+}
+
+#filterCollapse ul.list-unstyled li:not(.active):hover {
+    background-color: #007bff; 
+    color: #FFFFFF; 
+}
+
 .nav-item{
     padding-right: 15px;
 }

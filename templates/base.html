@@ -23,8 +23,8 @@
         <div class="row">
             <nav class="navbar navbar-expand-lg">
                 <div class="container">
-                    <a class="navbar-brand me-lg-5" href="#">
-                        <img src="{% static 'images/zamashop-logo.png' %}" class="logo-image img-fluid" alt="zamashop-logo">
+                    <a class="navbar-brand me-lg-5" href="/">
+                        <img src="{% static 'images/zamashop-logo.png' %}"  class="logo-image img-fluid" alt="zamashop-logo">
                     </a>
                     <!-- Search for products--->
                     <form action="#" method="get" class="search-form flex-fill me-3" role="search">
@@ -77,6 +77,22 @@
                     </div>
                 </div>
             </nav>
+        </div>
+        <div class="row">
+            <div class="products-nav all-products col">
+                <button class="sorting-button btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#filterCollapse" aria-expanded="false" aria-controls="filterCollapse">
+                    All products:
+                </button>
+                <!-- Collapse menu -->
+                <div class="collapse mt-2" id="filterCollapse">
+                    <ul class="list-unstyled">
+                        <li><a href="{% url 'products' %}">All products</a></li>
+                        <li><a href="#">Price</a></li>
+                        <li><a href="#">Category</a></li>
+                        <li><a href="#">Rating</a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </header>
     
