@@ -12,11 +12,16 @@
 {% endblock %}
 
 {% block content %}
-<div class="container">
-    <div class="row">
-        <div class="col">
-            {{ products }}
+<div class="product-overlay"></div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col text-center">
+                <!-- Shows the total amount of products on the store--->
+                <h3>{{ products.count }} Products</h3>
+            </div>
+        </div>
+        <div class="row">
+  
         </div>
     </div>
-</div>
 {% endblock %}
