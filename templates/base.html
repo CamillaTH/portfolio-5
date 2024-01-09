@@ -95,8 +95,44 @@
     {% block postload_js %}
 
     {% endblock %}
-<footer>
+    <footer class="site-footer">
+        <div class="container footer-container">
+            <div class="row align-items-center">
+                <div class="col-lg-4 col-12 mb-4 mb-lg-0">
+                    <div class="subscribe-form-wrap">
+                        <h6>Subscribe and products news updates!</h6>
+                        <form class="subscribe-form" action="#" method="post" role="form">
+                            <div class="input-group">
+                                <input type="email" name="subscribe-email" id="subscribe-email" pattern="[^@]*@[^@]*" class="form-control" placeholder="Email Address" required="">
+                                <button type="submit" class="btn btn-primary">Subscribe</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
     
-</footer>
+                <div class="col-lg-4 col-12 mb-4 mb-lg-0">
+                    <h2>Contact:</h2>
+                        <strong class="d-inline me-2">Email:</strong>
+                        <a href="mailto:mail@lunacamillath@gmail.com">mail@zamashop@zamashop.com</a>
+                </div>
+    
+                <div class="col-lg-4 col-12 order-lg-3 order-2">
+                    <h6>Social</h6>
+                    <ul class="social-icon list-inline mb-0">
+                        <li class="list-inline-item"><a href="https://instagram.com" target="_blank" aria-label="See updates on Instagram" rel="noopener"><i class="fab fa-instagram fa-2x"></i></a></li>
+                        <li class="list-inline-item"><a href="https://twitter.com" target="_blank" aria-label="See updates on Twitter" rel="noopener"><i class="fab fa-twitter fa-2x"></i></a></li>
+                        <li class="list-inline-item"><a href="https://facebook.com" target="_blank" aria-label="See updates on Facebook" rel="noopener"><i class="fab fa-facebook-f fa-2x"></i></a></li>
+                    </ul>
+                </div>
+    
+                <div class="col-lg-4 col-12 order-lg-2 order-3">
+                    <a class="navbar-brand" href="/">
+                        <img src="{% static 'images/zamashop-logo.png' %}" class="logo-image img-fluid logo-image" alt="zamashop logo">
+                    </a>
+                    <p class="mb-0 copy-right">Copyright © 2024 Zamashop</p>
+                </div>
+            </div>
+        </div>
+    </footer> 
 </body>
 </html>

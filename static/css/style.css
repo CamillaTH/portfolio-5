@@ -7,7 +7,7 @@ body {
     color: #0d67b4;
     background: url('/media/homepage-background.jpg');
     background-size: cover;
-    background-repeat: no-repeat; 
+    background-repeat: no-repeat;  
 }
 
 a {
@@ -54,7 +54,6 @@ button:hover {
 }
 
 /* products page */
-
 .product-overlay {
     width: 100%;
     height: 100%;
@@ -72,3 +71,30 @@ button:hover {
 .card-price .price{
     font-size: 1.8rem;
 }
+
+/* footer */
+.navbar-brand .logo-image{
+    max-width: 80px;
+}
+
+.site-footer {
+    margin-top: 400px;
+    border-top: 2px solid #0d67b4;
+    border-bottom: 2px solid #0d67b4;
+  }
+  .footer-container {
+    margin-top:40px;
+  }
+  .social-icon a i {
+    color: #0d67b4;
+  }
+  .copy-right {
+    color:#0d67b4;
+  }
+  
+  footer {
+    background-color: #FFFFFF; 
+    position: relative; 
+    z-index: 1;
+    padding-bottom: 15px;
+  }
