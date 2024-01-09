@@ -12,6 +12,7 @@ body {
 
 a {
     text-decoration: none;
+    color: #0d67b4;
 }
 .bold
 {
@@ -70,6 +71,10 @@ button:hover {
 
 .card-price .price{
     font-size: 1.8rem;
+}
+.sorting-wrapper {
+    float: right;
+    padding-right: 15px;
 }
 
 /* footer */

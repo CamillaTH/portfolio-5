@@ -19,6 +19,19 @@
                 <!-- Shows the total amount of products on the store--->
                 <h3>Showing <span class="bold">{{ products.count }}</span> Products</h3>
             </div>
+            <div class="sorting-wrapper col">
+                <button class="sorting-button btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#filterCollapse" aria-expanded="false" aria-controls="filterCollapse">
+                    Sort BY:
+                </button>
+                <!-- Collapse menu -->
+                <div class="collapse mt-2" id="filterCollapse">
+                    <ul class="list-unstyled">
+                        <li><a href="#">Price</a></li>
+                        <li><a href="#">Category</a></li>
+                        <li><a href="#">Rating</a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
         <!-- renders all the product cards with information about every product --->
         <div class="row">
