@@ -18,6 +18,28 @@ a {
     font-weight: bold;
 }
 
+button {
+    background-color: #0d67b4;
+    color:#FFFFFF
+  }
+
+button:hover {
+    border-radius: 12px;
+    color: #0d67b4;
+    background-color: #FFFFFF;
+  }
+  
+  .shopw-now-button {
+    font-size: 1.8rem;
+    padding: 30px 60px; 
+    text-align: center; 
+    display: block;
+    margin: 0 auto; 
+    border-radius: 13px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s; 
+}
+
 /* Navbar */
 .nav-item{
     padding-right: 15px;
