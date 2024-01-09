@@ -48,18 +48,17 @@ button:hover {
 
 .products-nav {
     position: absolute;
-    background-color: white;
     z-index: 1000; 
 }
 
 .sorting-button {
     background-color: #007bff; 
-    color: white; 
+    color: FFFFFF; 
 }
 
 #filterCollapse {
     background-color: #FFFFFF;
-    border: 1px solid #ddd; 
+    border: 1px solid #FFFFFF; 
 }
 
 #filterCollapse ul.list-unstyled li:not(.active):hover {

@@ -27,7 +27,7 @@
                         <img src="{% static 'images/zamashop-logo.png' %}"  class="logo-image img-fluid" alt="zamashop-logo">
                     </a>
                     <!-- Search for products--->
-                    <form action="#" method="get" class="search-form flex-fill me-3" role="search">
+                    <form action="{% url 'products' %}" method="GET" class="search-form flex-fill me-3" role="search">
                         <div class="input-group input-group-lg">
                             <input name="search" type="search" class="form-control" id="search-products" placeholder="Search products" aria-label="Search">
                             <button type="submit" class="form-control" id="submit">
