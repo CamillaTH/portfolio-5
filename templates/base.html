@@ -80,16 +80,59 @@
         </div>
         <div class="row">
             <div class="products-nav all-products col">
-                <button class="sorting-button btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#filterCollapse" aria-expanded="false" aria-controls="filterCollapse">
+                <button class="sorting-button btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#filterCollapseAll" aria-expanded="false" aria-controls="filterCollapseAll">
                     All products:
                 </button>
-                <!-- Collapse menu -->
-                <div class="collapse mt-2" id="filterCollapse">
+                <!-- Collapse mainnav menu -->
+                <div class="collapse mt-2" id="filterCollapseAll">
                     <ul class="list-unstyled">
                         <li><a href="{% url 'products' %}">All products</a></li>
                         <li><a href="#">Price</a></li>
                         <li><a href="#">Category</a></li>
                         <li><a href="#">Rating</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="products-nav all-homewear col">
+                <button class="sorting-button btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#filterCollapseHomewear" aria-expanded="false" aria-controls="filterCollapseHomewear">
+                    Homewear:
+                </button>
+                <!-- Collapse mainnav menu -->
+                <div class="collapse mt-2" id="filterCollapseHomewear">
+                    <ul class="list-unstyled">
+                        <li><a href="{% url 'products' %}?category=kitchen_dining">Kitchen and Dining</a></li>
+                        <li><a href="{% url 'products' %}?category=bed_bath">Bed and Bath</a></li>
+                        <li><a href="{% url 'products' %}?category=bed_bath,kitchen_dining">All Homewear</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="products-nav all-clothes col">
+                <button class="sorting-button btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#filterCollapseClothes" aria-expanded="false" aria-controls="filterCollapseClothes">
+                    Clothes:
+                </button>
+                <!-- Collapse mainnav menu -->
+                <div class="collapse mt-2" id="filterCollapseClothes">
+                    <ul class="list-unstyled">
+                        <li><a href="{% url 'products' %}?category=activewear,essentials">Jeans</a></li>
+                        <li><a href="{% url 'products' %}?category=shirts">Shirts</a></li>
+                        <li><a href="{% url 'products' %}?category=jeans">ActiveWear & Essentials</a></li>
+                        <li><a href="{% url 'products' %}?category=activewear,essentials,jeans,shirts">All Clothes</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="products-nav all-clothes col">
+                <button class="sorting-button btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#filterCollapseSpecials" aria-expanded="false" aria-controls="filterCollapseSpecials">
+                    Specials:
+                </button>
+                <!-- Collapse mainnav menu -->
+                <div class="collapse mt-2" id="filterCollapseSpecials">
+                    <ul class="list-unstyled">
+                        <li><a href="{% url 'products' %}?category=deals">Deals</a></li>
+                        <li><a href="{% url 'products' %}?category=new_arrivals">New Arrivals</a></li>
+                        <li><a href="{% url 'products' %}?category=clearance">Clearance</a></li>
+                        <li><a href="{% url 'products' %}?category=deals,new_arrivals,clearance">All specials</a></li>
                     </ul>
                 </div>
             </div>
