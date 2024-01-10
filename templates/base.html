@@ -87,9 +87,9 @@
                 <div class="collapse mt-2" id="filterCollapseAll">
                     <ul class="list-unstyled">
                         <li><a href="{% url 'products' %}">All products</a></li>
-                        <li><a href="#">Price</a></li>
-                        <li><a href="#">Category</a></li>
-                        <li><a href="#">Rating</a></li>
+                        <li><a href="{% url 'products' %}?sort=price&direction=asc">Price</a></li>
+                        <li><a href="{% url 'products' %}?sort=category&direction=asc">Category</a></li>
+                        <li><a href="{% url 'products' %}?sort=rating&direction=desc">Rating</a></li>
                     </ul>
                 </div>
             </div>
