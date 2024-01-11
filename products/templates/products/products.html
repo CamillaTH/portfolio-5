@@ -22,8 +22,9 @@
         </div>
         <div class="row category-buttons">
             <div class="col text-center">
+                <!-- displays selected categories--->
                 {% for c in current_categories %}
-                    <a href="{% url 'products' %}">
+                    <a href="{% url 'products' %}?category={{ c.name }}">
                         <button class="button categories-btn">{{ c.user_friendly_name }}</button>
                     </a>
                 {% endfor %}
