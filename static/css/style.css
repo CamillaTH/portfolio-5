@@ -103,6 +103,9 @@ button:hover {
 .product-icon {
     margin-right: 5px;
 }
+.card-text a:hover {
+    text-decoration: underline;
+  }
 
 /* footer */
 .navbar-brand .logo-image{
