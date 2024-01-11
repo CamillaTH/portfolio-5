@@ -21,7 +21,8 @@ a {
 
 button {
     background-color: #0d67b4;
-    color:#FFFFFF
+    color:#FFFFFF;
+    border-radius: 12px;
   }
 
 button:hover {

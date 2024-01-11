@@ -20,6 +20,15 @@
                 <h3>Showing <span class="bold">{{ products.count }}</span> Products</h3>
             </div>
         </div>
+        <div class="row">
+            <div class="col text-center">
+                {% for c in current_categories %}
+                    <a href="{% url 'products' %}">
+                        <button class="button categories-btn">{{ c.user_friendly_name }}</button>
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
         <!-- renders all the product cards with information about every product --->
         <div class="row">
             {% for product in products %}
