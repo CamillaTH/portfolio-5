@@ -43,7 +43,7 @@
                                 <p class="card-text">No rating yet</p>
                             {% endif %}
                             {% if product.category %}
-                                <p class="card-text">
+                                <p class="card-text cart-text-link">
                                     <a href="{% url 'products' %}?category={{product.category.name}}">
                                         <i class="fa-solid fa-table-list product-icon"></i>{{ product.category.user_friendly_name }}
                                     </a>
