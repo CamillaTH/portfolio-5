@@ -20,7 +20,7 @@
                 <h3>Showing <span class="bold">{{ products.count }}</span> Products</h3>
             </div>
         </div>
-        <div class="row">
+        <div class="row category-buttons">
             <div class="col text-center">
                 {% for c in current_categories %}
                     <a href="{% url 'products' %}">
