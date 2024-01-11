@@ -14,10 +14,18 @@
 {% block content %}
 <div class="product-overlay"></div>
     <div class="container-fluid">
-        <div class="row">
-            <div class="col text-center">
+        <div class="row product-count-sorting-wrapper">
+            <div class="col">
                 <!-- Shows the total amount of products on the store--->
-                <h3>Showing <span class="bold">{{ products.count }}</span> Products</h3>
+                <h3 class="total-product-count">Showing <span class="bold">{{ products.count }}</span> Products</h3>
+                
+                <!-- Sorting of products--->
+                <div class="sorting-selector-wrapper text-right">
+                    <select id="soring-products-selector">
+                        <option value="">sort by</option>
+                        <option value="test2">this is a long name</option>
+                    </select>
+                </div>
             </div>
         </div>
         <div class="row category-buttons">

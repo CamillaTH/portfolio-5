@@ -94,6 +94,22 @@ button:hover {
     position: fixed;
 }
 
+.total-product-count {
+    float: left;
+}
+
+.sorting-selector-wrapper {
+    float: right;
+}
+
+#soring-products-selector {
+    border-radius: 12px;
+    background-color: #0d67b4;
+    color: #FFFFFF;
+    min-width: 100px;
+    padding-left: 5px; 
+}
+
 .card {
     color:#0d67b4;
 }
@@ -138,3 +154,13 @@ button:hover {
     z-index: 1;
     padding-bottom: 15px;
   }
+
+  /*---------------------------------------
+  Media querys for smaller screens   
+-----------------------------------------*/
+@media (max-width: 767px) {
+
+    .product-count-sorting-wrapper {
+        margin-bottom: 15px;
+    }
+}
