@@ -100,6 +100,9 @@ button:hover {
     float: right;
     padding-right: 15px;
 }
+.product-icon {
+    margin-right: 5px;
+}
 
 /* footer */
 .navbar-brand .logo-image{
