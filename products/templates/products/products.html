@@ -22,8 +22,15 @@
                 <!-- Sorting of products--->
                 <div class="sorting-selector-wrapper text-right">
                     <select id="soring-products-selector">
-                        <option value="">sort by</option>
-                        <option value="test2">this is a long name</option>
+                        <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %} >sort by</option>
+                        <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %} >Price lowest to highest</option>
+                        <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %} >Price highest to lowest</option>
+                        <option value="category_asc" {% if current_sorting == 'category_asc' %}selected{% endif %} >Category A-Z</option>
+                        <option value="category_desc" {% if current_sorting == 'category_desc' %}selected{% endif %} >Category Z-A</option>
+                        <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %} >Name A-Z</option>
+                        <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %} >Name Z-A</option>
+                        <option value="rating_asc" {% if current_sorting == 'rating_asc' %}selected{% endif %} >Rating low to high</option>
+                        <option value="rating_desc" {% if current_sorting == 'rating_desc' %}selected{% endif %} >Rating high to low</option>                        
                     </select>
                 </div>
             </div>
