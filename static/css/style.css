@@ -41,8 +41,16 @@ button:hover {
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s; 
 }
+
 .category-buttons {
     margin-bottom: 5px;
+}
+
+#scrollToTopButton {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    cursor: pointer;
 }
 
 

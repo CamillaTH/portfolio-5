@@ -11,6 +11,8 @@ $(function(){
       Functions
     -----------------------------------------*/
 
+
+    //functions that handles sthe sorting dropdown 
     $("#soring-products-selector").change(function() {
         var selector = $(this);
         var currentUrl = new URL(window.location);
@@ -27,6 +29,22 @@ $(function(){
         }
     
         window.location.replace(currentUrl);
+    });
+
+    $(document).ready(function () {
+        // Show/hide the button based on scroll position
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 100) {
+                $('#scrollToTopButton').fadeIn();
+            } else {
+                $('#scrollToTopButton').fadeOut();
+            }
+        });
+    
+        // Scrolling to top when the button is clicked
+        $('#scrollToTopButton').click(function () {
+            $('html, body').animate({ scrollTop: 0 }, 500);
+        });
     });
     
 });
