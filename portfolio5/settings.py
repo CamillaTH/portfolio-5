@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'portfolio5',
     'home',
     'products',
+    'cart',
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
