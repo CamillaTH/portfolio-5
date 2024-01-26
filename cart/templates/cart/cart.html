@@ -33,9 +33,11 @@
                             {% for entry in cart_entries %}
                                 <tr>
                                     <td>
-                                        <img class="cart-product-image" src="{{ entry.product.image.url }}" alt="cart-product-imge">
-                                        <p class="bold">Name: {{ entry.product.name }}</p>
-                                        <p>SKU: {{ entry.product.sku }}</p>
+                                        <a href="{% url 'product_detail' entry.product.id %}">
+                                            <img class="cart-product-image" src="{{ entry.product.image.url }}" alt="cart-product-imge">
+                                            <p class="bold">Name: {{ entry.product.name }}</p>
+                                            <p>SKU: {{ entry.product.sku }}</p>
+                                        </a>
                                     </td>
                                     <td>
                                         <p class="bold">€ {{ entry.product.price }}</p>
