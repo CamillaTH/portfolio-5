@@ -9,6 +9,12 @@ body {
     background-size: cover;
     background-repeat: no-repeat;  
 }
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
 
 a {
     text-decoration: none;
@@ -142,10 +148,12 @@ button:hover {
 }
 
 .site-footer {
-    margin-top: 400px;
     border-top: 2px solid #0d67b4;
     border-bottom: 2px solid #0d67b4;
+    margin-top: auto;
+    padding: 20px 0;
   }
+
   .footer-container {
     margin-top:40px;
   }
@@ -162,6 +170,11 @@ button:hover {
     z-index: 1;
     padding-bottom: 15px;
   }
+
+  /* Cart page*/
+ .cart-heading {
+    margin-top: 25px;
+ }
 
   /*---------------------------------------
   Media querys for smaller screens   
