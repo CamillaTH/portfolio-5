@@ -74,8 +74,7 @@
                                     </a>
                                 </p>
                             {% endif %}
-                            <!-- add to cart button --->
-                            <!-- add to cart button --->
+                            <!-- add to cart button TODO investigate why it not working to add products from product feed--->
                             <form action="{% url 'add_to_cart' product_id=product.id %}" method="POST" class="add-to-cart-form">
                                 {% csrf_token %}
                                 {{ form }}

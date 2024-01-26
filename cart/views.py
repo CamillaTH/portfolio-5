@@ -11,8 +11,7 @@ def cart(request):
 
 @require_POST
 def add_to_cart(request, product_id):
-    print("sadsadsads")
-    print(request.POST)
+    
     cart = request.session.get('cart', {})
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')

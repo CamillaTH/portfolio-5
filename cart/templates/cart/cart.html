@@ -21,7 +21,34 @@
         <div class="row cart-items">
             <div class="col">
                 {% if cart_entries %}
-                    {{ cart_entries }}
+                    <div class="cart-items-wrapper">
+                        <table class="table table-m">
+                            <thead>
+                                <th scope="col">Product</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Total</th>
+                            </thead>
+                            {% for entry in cart_entries %}
+                                <tr>
+                                    <td>
+                                        <img class="cart-product-image" src="{{ entry.product.image.url }}" alt="cart-product-imge">
+                                        <p class="bold">Name: {{ entry.product.name }}</p>
+                                        <p>SKU: {{ entry.product.sku }}</p>
+                                    </td>
+                                    <td>
+                                        <p class="bold">€ {{ entry.product.price }}</p>
+                                    </td>
+                                    <td>
+                                        <p class="bold"> {{ entry.qty }}</p>
+                                    </td>
+                                    <td>
+                                        <p class="bold">€ {{ entry.entry_total_price }}</p>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
                 {% else %}
                     <p>You have no products added to bag please add products!<i class="fa-solid fa-boxes-packing"></i></p>
                     <a href="{% url 'products' %}">

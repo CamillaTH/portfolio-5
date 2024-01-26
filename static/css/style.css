@@ -15,6 +15,9 @@ body {
     min-height: 100vh;
 }
 
+td p {
+    color: #0d67b4;
+}
 
 a {
     text-decoration: none;
@@ -232,6 +235,13 @@ button:hover {
     margin-left: 5px;
 }
 
+.cart-items-wrapper th {
+    color: #0d67b4;
+}
+
+.cart-product-image {
+    max-width: 60px;
+}
   /*---------------------------------------
   Media querys for smaller screens   
 -----------------------------------------*/
