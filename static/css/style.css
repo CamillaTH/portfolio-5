@@ -171,7 +171,12 @@ button:hover {
 }
 .card-text a:hover {
     text-decoration: underline;
-  }
+}
+
+.product-description {
+    border-bottom: 1px #0d67b4 solid;
+    border-top:1px#0d67b4 solid;
+}
 
 /* footer */
 .navbar-brand .logo-image{
