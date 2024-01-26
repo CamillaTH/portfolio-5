@@ -48,6 +48,17 @@ button:hover {
     transition: background-color 0.3s, color 0.3s; 
 }
 
+.see-products-button {
+    font-size: 1.6rem;
+    padding: 15px 30px; 
+    text-align: center; 
+    display: block;
+    margin: 0 auto; 
+    border-radius: 13px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s; 
+}
+
 .category-buttons {
     margin-bottom: 5px;
 }
@@ -175,6 +186,10 @@ button:hover {
  .cart-heading {
     margin-top: 25px;
  }
+
+.cart-items button{
+    margin-bottom: 20px;
+}
 
   /*---------------------------------------
   Media querys for smaller screens   

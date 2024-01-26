@@ -12,10 +12,21 @@
 
 {% block content %}
     <div class="product-overlay"></div>
-    <div class="container cart-heading">
+    <div class="container cart-heading text-center">
         <div class="row">
             <div class="col">
                 <h1>Cart</h1>
+            </div>
+        </div>
+        <div class="row cart-items">
+            <div class="col">
+                {% if cart_items %}
+                {% else %}
+                    <p>You have no products added to bag please add products!</p>
+                    <a href="{% url 'products' %}">
+                        <button class="see-products-button">See produts</button>
+                    </a>
+                {% endif %}
             </div>
         </div>
     </div>
