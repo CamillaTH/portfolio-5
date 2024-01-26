@@ -43,7 +43,7 @@ button:hover {
     text-align: center; 
     display: block;
     margin: 0 auto; 
-    border-radius: 13px;
+    border-radius: 12px;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s; 
 }
@@ -54,7 +54,7 @@ button:hover {
     text-align: center; 
     display: block;
     margin: 0 auto; 
-    border-radius: 13px;
+    border-radius: 12px;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s; 
 }
@@ -176,6 +176,18 @@ button:hover {
 .product-description {
     border-bottom: 1px #0d67b4 solid;
     border-top:1px#0d67b4 solid;
+}
+
+#quantity-shower {
+    max-width: 40px;
+    border-radius: 12px;
+    text-align: center;
+    border-color: #0d67b4;
+    color:#0d67b4
+}
+
+#decrement-button {
+    min-width: 40px
 }
 
 /* footer */

@@ -47,4 +47,22 @@ $(function(){
         });
     });
     
+
+    // function that increment and decrement qty
+    $(document).ready(function () {
+        const quantityInput = $('#quantity-shower');
+        const incrementButton = $('#increment-button');
+        const decrementButton = $('#decrement-button');
+
+        incrementButton.on('click', function () {
+            quantityInput[0].stepUp();
+        });
+    
+        decrementButton.on('click', function () {
+            if (quantityInput.val() > 1) {
+                quantityInput[0].stepDown();
+            }
+        });
+    });
+
 });
