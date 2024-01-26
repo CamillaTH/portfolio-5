@@ -74,10 +74,16 @@
                                     </a>
                                 </p>
                             {% endif %}
-                            <!-- add to cart button -->
-                            <a href="">
-                                <button class="add-to-cart-button">Add produt <i class="fa-solid fa-cart-plus"></i></button>
-                            </a>
+                            <!-- add to cart button --->
+                            <!-- add to cart button --->
+                            <form action="{% url 'add_to_cart' product_id=product.id %}" method="POST" class="add-to-cart-form">
+                                {% csrf_token %}
+                                {{ form }}
+                                <button type="submit" id="decrement-button">-</button>
+                                <input id="quantity-shower" type="number" name="quantity" value="0">
+                                <button type="submit" id="increment-button"><i class="fa-solid fa-cart-plus"></i></button>
+                                <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                            </form>
                         </div>
                     </div>
                 </div>
