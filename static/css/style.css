@@ -191,6 +191,10 @@ button:hover {
     margin-bottom: 20px;
 }
 
+.cart-items i {
+    margin-left: 5px;
+}
+
   /*---------------------------------------
   Media querys for smaller screens   
 -----------------------------------------*/
