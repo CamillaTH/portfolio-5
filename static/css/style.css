@@ -142,6 +142,22 @@ button:hover {
     position: fixed;
 }
 
+.increment-icon {
+    color: #FFFFFF;
+}
+
+.select-size-selector {
+    border-radius: 12px;
+    color: #0d67b4;
+    min-width: 5%;
+    background-color: #FFFFFF;
+    margin-bottom: 10px;
+}
+
+.increment-icon:hover {
+    color: #0d67b4;
+}
+
 .total-product-count {
     float: left;
 }

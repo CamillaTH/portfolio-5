@@ -49,10 +49,23 @@
                          <!-- add to cart button --->
                          <form action="{% url 'add_to_cart' product_id=product.id %}" method="POST" class="add-to-cart-form">
                             {% csrf_token %}
+                            {% with product.has_sizes as s %}
+                            {% if s %}
+                                <div class="col">
+                                    <select class="select-size-selector" name="product_sizes" id="product_size_id">
+                                        <option value="">XS</option>
+                                        <option value="">S</option>
+                                        <option value="">M</option>
+                                        <option value="">L</option>
+                                        <option value="">XL</option>
+                                    </select>
+                                </div>
+                            {% endif %}
+                            {% endwith %}
                             {{ form }}
                             <button type="submit" id="decrement-button">-</button>
                             <input id="quantity-shower" type="number" name="quantity" value="0">
-                            <button type="submit" id="increment-button"><i class="fa-solid fa-cart-plus"></i></button>
+                            <button type="submit" id="increment-button"><i class="fa-solid fa-cart-plus increment-icon"></i></button>
                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
                         </form>
                     </div>
