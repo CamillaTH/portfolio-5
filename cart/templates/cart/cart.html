@@ -20,7 +20,8 @@
         </div>
         <div class="row cart-items">
             <div class="col">
-                {% if cart_items %}
+                {% if cart_entries %}
+                    {{ cart_entries }}
                 {% else %}
                     <p>You have no products added to bag please add products!<i class="fa-solid fa-boxes-packing"></i></p>
                     <a href="{% url 'products' %}">
