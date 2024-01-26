@@ -108,6 +108,26 @@ button:hover {
     color:#0d67b4;
 }
 
+.free-shipping {
+    background-color: #FFFFFF;
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
+.free-shipping h2 
+{
+    padding-top: 7px;
+    animation: blink 1s infinite;
+}
+
+
 /* products page */
 .product-overlay {
     width: 100%;
