@@ -37,6 +37,7 @@
                                             <img class="cart-product-image" src="{{ entry.product.image.url }}" alt="cart-product-imge">
                                             <p class="bold">Name: {{ entry.product.name }}</p>
                                             <p>SKU: {{ entry.product.sku }}</p>
+                                            <p class="bold">Size: {% if entry.product.has_sizes %}{{ entry.size|upper }}{% else %} OneSize{% endif %}</p>
                                         </a>
                                     </td>
                                     <td>
