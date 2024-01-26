@@ -11,17 +11,32 @@ def cart(request):
 
 @require_POST
 def add_to_cart(request, product_id):
-    
-    cart = request.session.get('cart', {})
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
 
-    print(redirect_url)
+    product_size = None
+    if 'product_size' in request.POST:
+        print("siiize")
+        print(product_size)
+        product_size = request.POST['product_size']
 
-    if product_id in list(cart.keys()):
-        cart[product_id] += quantity
+    cart = request.session.get('cart', {})
+
+    if product_size:
+        if product_id in cart:
+            if 'entries_by_size' not in cart[product_id]:
+                cart[product_id]['entries_by_size'] = {}
+            if product_size in cart[product_id]['entries_by_size']:
+                cart[product_id]['entries_by_size'][product_size] += quantity
+            else:
+                cart[product_id]['entries_by_size'][product_size] = quantity
+        else:
+            cart[product_id] = {'entries_by_size': {product_size: quantity}}
     else:
-        cart[product_id] = quantity
-    
+        if product_id in cart:
+            cart[product_id] += quantity
+        else:
+            cart[product_id] = quantity
+
     request.session['cart'] = cart
     return redirect(redirect_url)

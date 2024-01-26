@@ -52,12 +52,12 @@
                             {% with product.has_sizes as s %}
                             {% if s %}
                                 <div class="col">
-                                    <select class="select-size-selector" name="product_sizes" id="product_size_id">
-                                        <option value="">XS</option>
-                                        <option value="">S</option>
-                                        <option value="">M</option>
-                                        <option value="">L</option>
-                                        <option value="">XL</option>
+                                    <select class="select-size-selector" name="product_size" id="id_product_size">
+                                        <option value="xs">XS</option>
+                                        <option value="s">S</option>
+                                        <option value="m">M</option>
+                                        <option value="l">L</option>
+                                        <option value="xl">XL</option>
                                     </select>
                                 </div>
                             {% endif %}
