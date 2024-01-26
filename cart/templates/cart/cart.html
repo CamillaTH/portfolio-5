@@ -28,6 +28,7 @@
                                 <th scope="col">Price</th>
                                 <th scope="col">Quantity</th>
                                 <th scope="col">Total</th>
+                                <th scope="col"></th>
                             </thead>
                             {% for entry in cart_entries %}
                                 <tr>
@@ -45,9 +46,17 @@
                                     <td>
                                         <p class="bold">€ {{ entry.entry_total_price }}</p>
                                     </td>
+                                    <td><i class="fa-solid fa-trash-can"></i></td>
                                 </tr>
-                            {% endfor %}
+                            {% endfor %}                            
                         </table>
+                        <div class="row">
+                            <div class="col">        
+                                <a href="">
+                                    <button class="checkout-button bold">Proceed to checkout <i class="fa-solid fa-credit-card"></i></button>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 {% else %}
                     <p>You have no products added to bag please add products!<i class="fa-solid fa-boxes-packing"></i></p>
