@@ -66,6 +66,16 @@
                             {% endfor %}                            
                         </table>
                         <div class="row">
+                            <div class="col text-right">
+                                <h3 class="bold">shipping cost: €{{ shipping }}</h3>
+                            </div>
+                          </div>
+                          <div class="row total-price-cart">
+                            <div class="col text-right">
+                                <h2 class="bold">total price: €{{ total_price }}</h2>
+                            </div>
+                          </div>
+                        <div class="row">
                             <div class="col">        
                                 <a href="{% url 'checkout' %}">
                                     <button class="checkout-button bold">Proceed to checkout <i class="fa-solid fa-credit-card"></i></button>

@@ -28,6 +28,10 @@ a {
     font-weight: bold;
 }
 
+.text-right {
+    text-align: right!important;
+}
+
 button {
     background-color: #0d67b4;
     color:#FFFFFF;
@@ -269,9 +273,35 @@ button:hover {
 .remove-entry-icon:hover, .update-entry-icon:hover{
     color: #FFFFFF;
 }
+.total-price-cart {
+    margin-bottom: 10px;
+    border-bottom:2px #0d67b4 solid;
+} 
 
 /* checkout  */
+.login-register-checkout-i {
+    margin-left: 6px;
+}
 
+.login-register-checkout-save-i {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+  .save-address-checkbox {
+  
+    height: 20px;
+    width: 20px; 
+    border: 2px solid #0d67b4; 
+    border-radius: 8px; 
+  }
+.border-bottom {
+    border-top: 2px solid #0d67b4;
+}
+
+.total-price-checkout {
+    border-bottom:2px #0d67b4 solid;
+}
 
   /*---------------------------------------
   Media querys for smaller screens   
