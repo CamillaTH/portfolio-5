@@ -44,7 +44,19 @@
                                         <p class="bold">€ {{ entry.product.price }}</p>
                                     </td>
                                     <td>
-                                        <p class="bold"> {{ entry.qty }}</p>
+                                        <form action="" method="POST">
+                                            {% csrf_token %}
+                                            <div class="form-buttons-wrapper">                            
+                                                <button data-item-id="{{ entry.product.id }}" id="decrement-qty_{{ entry.product.id }}" class="decrement-button-cart">-</button>
+                                                <input class="quantity-shower-cart" id="quantity-shower-cart_{{ entry.product.id }}" data-item-id="{{ entry.product.id }}" type="number" name="quantity" value="{{ entry.qty }}" max="999">
+                                                <button data-item-id="{{ entry.product.id }}" id="increment-qty_{{ entry.product.id }}" class="increment-button-cart">+</button>
+                                                <button type="submit" class="add-to-cart-button">Add<i class="fa-solid fa-cart-plus increment-icon"></i></button>
+                                                <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                                            </div>
+                                            {% if entry.product.has_sizes %}
+                                                <input type="hidden" name="product_size" value="{{ entry.size }}">
+                                            {% endif %}
+                                        </form>
                                     </td>
                                     <td>
                                         <p class="bold">€ {{ entry.entry_total_price }}</p>
