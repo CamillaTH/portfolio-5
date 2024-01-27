@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from products.models import Order
+#from checkout.models import Order
 
 # Create your views here
 
