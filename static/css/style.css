@@ -260,6 +260,16 @@ button:hover {
     min-height: 60px;
 }
 
+.remove-entry:hover, .update-entry:hover{
+    margin-left: 5px;
+    border-radius: 10px;
+    background-color: #0d67b4;
+    color: #FFFFFF;
+}
+.remove-entry-icon:hover, .update-entry-icon:hover{
+    color: #FFFFFF;
+}
+
   /*---------------------------------------
   Media querys for smaller screens   
 -----------------------------------------*/

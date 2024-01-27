@@ -69,10 +69,8 @@ $(function(){
 
     // function that increment and decrement qty on cart page
     $(document).ready(function () {
-        console.log("clickadd")
         $('.increment-button-cart').on('click', function (e) {
             e.preventDefault();
-            console.log("clickad d  cart")
             const productId = $(this).data('item-id');
             const quantityInput = $('#quantity-shower-cart_' + productId);
             if (quantityInput.length) {
@@ -82,12 +80,19 @@ $(function(){
     
         $('.decrement-button-cart').on('click', function (e) {
             e.preventDefault();
-            console.log("clickad Rev  cart")
             const productId = $(this).data('item-id');
             const quantityInput = $('#quantity-shower-cart_' + productId);
             if (quantityInput.length && quantityInput.val() > 1) {
                 quantityInput[0].stepDown();
             }
+        });
+    });
+
+    // function that handles submits cart qty form
+    $(document).ready(function () {
+        $('.update-entry').on('click', function (e) {   
+            var form = $('.update-qty-cart-form')
+            form.submit();
         });
     });
 });
