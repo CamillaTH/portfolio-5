@@ -1,3 +1,5 @@
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import Layout, Submit, Row, Column
 from django import forms
 from .models import Order
 
@@ -8,9 +10,13 @@ class OrderForm(forms.ModelForm):
                   'country', 'city', 'street_address',)
 
     def __init__(self, *args, **kwargs):
-        ''' set fields when init '''
-
         super().__init__(*args, **kwargs)
+
+        self.helper = FormHelper()
+        self.helper.form_method = 'post'
+        self.helper.form_class = 'needs-validation'
+        self.helper.add_input(Submit('submit', 'Submit'))
+
         placeholders = {
             'first_name': 'First name',
             'last_name': 'Last name',
@@ -25,11 +31,20 @@ class OrderForm(forms.ModelForm):
         self.fields['first_name'].widget.attrs['autofocus'] = True
 
         for field in self.fields:
-            if self.fields[field].required:
-                placeholder = f'{placeholders[field]} *'
-            else:
-                placeholder = placeholders[field]
+            self.fields[field].widget.attrs['placeholder'] = placeholders[field]
+            self.fields[field].widget.attrs['class'] = 'form-control'
 
-            self.fields[field].widget.attrs['placeholder'] = placeholder
-            self.fields[field].widget.attrs['class'] = 'stripe-style-input'
-            self.fields[field].label = False
+        self.helper.layout = Layout(
+            Row(
+                Column('first_name', css_class='col-md-6'),
+                Column('last_name', css_class='col-md-6'),
+            ),
+            Row(
+                Column('email', css_class='col-md-6'),
+                Column('phone', css_class='col-md-6'),
+            ),
+            'postal_code',
+            'country',
+            'city',
+            'street_address',
+        )

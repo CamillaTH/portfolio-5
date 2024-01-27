@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load crispy_forms_tags %}
 
 {% block page_header %}
     <div class="container header-container">
@@ -12,5 +13,16 @@
 
 {% block content %}
     <div class="product-overlay"></div>
-
+    <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h2 class="text-center bold">Please fill out the form to submit your order</h2>
+          </div>
+        </div>
+    
+        <form method="post" class="your-form-class">
+          {% csrf_token %}
+          {% crispy order_form %}
+        </form>
+      </div>
 {% endblock %}
