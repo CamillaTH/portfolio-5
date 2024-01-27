@@ -1,7 +1,7 @@
 from django.db import models
 
 class Order(models.Model):
-    order_number = models.CharField(max_length=16, null=False, editable=False)
+    order_number = models.CharField(max_length=17, null=False, editable=False)
     email = models.CharField(max_length=30, null=False, blank=False)
     phone = models.CharField(max_length=12, null=False, blank=False)
     first_name = models.CharField(max_length=30, null=False, blank=False)
@@ -21,7 +21,7 @@ class Order(models.Model):
 
     def generate_order_number(self):
         # produce the first 8 digits (random numbers)
-        random_part = ''.join(str(random.randint(0, 9)) for _ in range(8))
+        rrandom_part = ''.join(str(random.randint(0, 9)) for _ in range(9))
 
         # produce the last 8 digits as the order date in the format YYYYMMDD
         order_date_part = date.today().strftime("%Y%m%d")
