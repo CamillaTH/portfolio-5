@@ -1,6 +1,10 @@
 from django.db import models
+from products.models import Product
+from django.conf import settings
+from django.db.models import sum
 
 class Order(models.Model):
+    ''' Model that holds information about orders '''
     order_number = models.CharField(max_length=17, null=False, editable=False)
     email = models.CharField(max_length=30, null=False, blank=False)
     phone = models.CharField(max_length=12, null=False, blank=False)
@@ -29,3 +33,11 @@ class Order(models.Model):
         # Combine both parts to form the 16-digit order number
         order_number = f"{random_part}-{order_date_part}"
         return order_number
+
+class OrderEntry(models.Model):
+    ''' Model that holds information about order entires '''
+    order = models.ForeignKey(Order, null=False, blank=False, on_delete=models.CASCADE, related_name='orderEntries')
+    product = models.ForeignKey(Product, null=False, blank=False, on_delete=models.CASCADE)
+    product_size = models.CharField(max_length=2, null=True, blank=True)
+    quantity = models.IntegerField(null=False, blank=False, default=0)
+    entry_total = models.DecimalField(max_digits=6, null=False, blank=False, editable=False, decimal_places=2)
