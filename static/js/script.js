@@ -59,9 +59,9 @@ $(function(){
             quantityInput[0].stepUp();
         });
     
-        decrementButton.on('click', function () {
-            e.preventDefault();
+        decrementButton.on('click', function (e) {
             if (quantityInput.val() > 1) {
+                e.preventDefault();
                 quantityInput[0].stepDown();
             }
         });
