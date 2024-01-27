@@ -205,10 +205,6 @@ button:hover {
     color:#0d67b4
 }
 
-#decrement-button {
-    min-width: 40px
-}
-
 /* footer */
 .navbar-brand .logo-image{
     max-width: 80px;

@@ -48,17 +48,19 @@ $(function(){
     });
     
 
-    // function that increment and decrement qty
+    // function that increment and decrement qty 
     $(document).ready(function () {
         const quantityInput = $('#quantity-shower');
-        const incrementButton = $('#increment-button');
-        const decrementButton = $('#decrement-button');
+        const incrementButton = $('.increment-button');
+        const decrementButton = $('.decrement-button');
 
-        incrementButton.on('click', function () {
+        incrementButton.on('click', function (e) {
+            e.preventDefault();
             quantityInput[0].stepUp();
         });
     
         decrementButton.on('click', function () {
+            e.preventDefault();
             if (quantityInput.val() > 1) {
                 quantityInput[0].stepDown();
             }
