@@ -14,11 +14,12 @@
 {% block content %}
     <div class="product-overlay"></div>
     <div class="container">
-        <div class="row">
+        <div class="row checkout-info-text">
           <div class="col-12">
-            <h2 class="text-center bold">Please fill out the form to submit your order</h2>
+            <h2 class="text-center bold ">Please fill out the form to submit your order</h2>
           </div>
         </div>
+        <h2 class="product-heading-checkout bold">Products:</h2>
         <div class="cart-items-wrapper">
           <table class="table table-m">
               <thead>
@@ -29,14 +30,18 @@
               </thead>
               {% for entry in cart_entries %}
                   <tr>
-                      <td>
-                          <a href="{% url 'product_detail' entry.product.id %}">
+                    <td>
+                      <a href="{% url 'product_detail' entry.product.id %}">
+                          {% if entry.product.image %}
                               <img class="cart-product-image" src="{{ entry.product.image.url }}" alt="cart-product-imge">
-                              <p class="bold">Name: {{ entry.product.name }}</p>
-                              <p>SKU: {{ entry.product.sku }}</p>
-                              <p class="bold">Size: {% if entry.product.has_sizes %}{{ entry.size|upper }}{% else %} OneSize{% endif %}</p>
-                          </a>
-                      </td>
+                          {% else %}
+                              <img src="{{ MEDIA_URL}}noimage.png" class="card-img-top" alt="{{ product.name }}">
+                          {% endif %}
+                      </a>
+                      <p class="bold">Name: {{ entry.product.name }}</p>
+                          <p>SKU: {{ entry.product.sku }}</p>
+                          <p class="bold">Size: {% if entry.product.has_sizes %}{{ entry.size|upper }}{% else %} OneSize{% endif %}</p>
+                  </td>
                       <td>
                           <p class="bold">€ {{ entry.product.price }}</p>
                       </td>
@@ -54,31 +59,31 @@
           </table>
           <div class="row">
             <div class="col text-right">
-                <h3 class="bold">shipping cost: €{{ shipping }}</h3>
+                <h3 class="bold">shipping cost: €{{ shipping |floatformat:2 }}</h3>
             </div>
           </div>
           <div class="row">
             <div class="col text-right">
-                <h2 class="bold total-price-checkout">total price: €{{ total_price }}</h2>
+                <h2 class="bold total-price-checkout">total price: €{{ total_price | floatformat:2 }}</h2>
             </div>
           </div>
       </div>
         <form method="post" action="{% url 'checkout' %}" id="checkout-form" class="checkout-form">
-          {% csrf_token %}
-          {% crispy order_form %}
-          {% if user.is_authenticated %}
-          <label for="id-save-address" class="register-login-checkout bold">Save address to profile?</label>
-          <i class="fa-regular fa-floppy-disk login-register-checkout-save-i"></i>
-          <input type="checkbox" id="id-save-address" name="save-address" class="save-address-checkbox" checked>
-          {% else %}
-            <label for="id-save-address" class="register-login-checkout bold">To save address register or login: </label>
-            <button href="{% url 'account_signup' %}">Register<i class="fa-solid fa-right-to-bracket login-register-checkout-i"></i></button>
-            <button href="{% url 'account_login' %}">Login<i class="fa-solid fa-user login-register-checkout-i"></i></button>
-          {% endif %}
-          <div class="payment-wrapper">
-              <div id="card-element"></div>
-              <div id="card-errors"></div>
-          </div>
+            {% csrf_token %}
+            {% crispy order_form %}
+            {% if user.is_authenticated %}
+            <label for="id-save-address" class="register-login-checkout bold">Save address to profile?</label>
+            <i class="fa-regular fa-floppy-disk login-register-checkout-save-i"></i>
+            <input type="checkbox" id="id-save-address" name="save-address" class="save-address-checkbox" checked>
+            {% else %}
+              <label for="id-save-address" class="register-login-checkout bold">To save address register or login: </label>
+              <button href="{% url 'account_signup' %}">Register<i class="fa-solid fa-right-to-bracket login-register-checkout-i"></i></button>
+              <button href="{% url 'account_login' %}">Login<i class="fa-solid fa-user login-register-checkout-i"></i></button>
+            {% endif %}
+            <div class="payment-wrapper">
+                <div id="card-element"></div>
+                <div id="card-errors"></div>
+            </div>
         </form>
       </div>
 {% endblock %}

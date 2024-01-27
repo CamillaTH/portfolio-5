@@ -15,7 +15,7 @@
     <div class="container cart-heading text-center">
         <div class="row">
             <div class="col">
-                <h1>Cart</h1>
+                <h1 class="bold">Cart</h1>
             </div>
         </div>
         <div class="row cart-items">
@@ -29,15 +29,20 @@
                                 <th scope="col">Quantity</th>
                                 <th scope="col">Total</th>
                             </thead>
+
                             {% for entry in cart_entries %}
                                 <tr>
                                     <td>
                                         <a href="{% url 'product_detail' entry.product.id %}">
-                                            <img class="cart-product-image" src="{{ entry.product.image.url }}" alt="cart-product-imge">
-                                            <p class="bold">Name: {{ entry.product.name }}</p>
+                                            {% if entry.product.image %}
+                                                <img class="cart-product-image" src="{{ entry.product.image.url }}" alt="cart-product-imge">
+                                            {% else %}
+                                                <img src="{{ MEDIA_URL}}noimage.png" class="card-img-top" alt="{{ product.name }}">
+                                            {% endif %}
+                                        </a>
+                                        <p class="bold">Name: {{ entry.product.name }}</p>
                                             <p>SKU: {{ entry.product.sku }}</p>
                                             <p class="bold">Size: {% if entry.product.has_sizes %}{{ entry.size|upper }}{% else %} OneSize{% endif %}</p>
-                                        </a>
                                     </td>
                                     <td>
                                         <p class="bold">€ {{ entry.product.price }}</p>
@@ -67,12 +72,12 @@
                         </table>
                         <div class="row">
                             <div class="col text-right">
-                                <h3 class="bold">shipping cost: €{{ shipping }}</h3>
+                                <h3 class="bold">shipping cost: €{{ shipping |floatformat:2 }}</h3>
                             </div>
                           </div>
                           <div class="row total-price-cart">
                             <div class="col text-right">
-                                <h2 class="bold">total price: €{{ total_price }}</h2>
+                                <h2 class="bold">total price: €{{ total_price |floatformat:2 }}</h2>
                             </div>
                           </div>
                         <div class="row">
