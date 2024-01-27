@@ -20,4 +20,4 @@ class Wishlist(models.Model):
     products = models.ManyToManyField(Product)
 
     def __str__(self):
-        return f"Wishlist for {self.user.user.username}"
+        return f"Wishlist for {self.user.username}"
