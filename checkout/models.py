@@ -21,7 +21,7 @@ class Order(models.Model):
 
     def generate_order_number(self):
         # produce the first 8 digits (random numbers)
-        rrandom_part = ''.join(str(random.randint(0, 9)) for _ in range(9))
+        random_part = ''.join(str(random.randint(0, 9)) for _ in range(9))
 
         # produce the last 8 digits as the order date in the format YYYYMMDD
         order_date_part = date.today().strftime("%Y%m%d")
