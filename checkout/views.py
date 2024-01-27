@@ -6,4 +6,6 @@ from django.shortcuts import render, redirect
 def checkout(request):
     """ View that shows the checkout page """
     
+    cart = request.session.get('cart', {})
+
     return render(request, 'checkout/checkout.html')
