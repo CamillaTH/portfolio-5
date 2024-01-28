@@ -1,39 +1,175 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# ZAMASHOP B2C online store
 
-Welcome,
+![alt text](static/images/zamashop-logo.png)
+ Zamashop is a b2c store that offers clothing and homewhere like beddings, necklases etc.
 
-This is the Code Institute student template for Codeanywhere. If you are using Gitpod then you need [this template](https://github.com/Code-Institute-Org/gitpod-full-template) instead.  We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+## Deployment
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Codeanywhere and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **August 30th, 2023**
+* site is live at : https://protfolio-5-a19d9a5d5d8d.herokuapp.com/
+* To enter admin panel go to -> https://protfolio-5-a19d9a5d5d8d.herokuapp.com//admin
 
-## Codeanywhere Reminders
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere, in the terminal, type:
 
-`python3 -m http.server`
+### clone repository locally (HTTPS)
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
+* Navigate to the repository (https://github.com/CamillaTH/portfolio-5)
+* Click on the button "code".
+* Choose "HTTPS" and copy the URL.
+* Choose a local directory where want to clone the repository.
+* Open terminal at the location you want the repository and write "git clone https://github.com/CamillaTH/portfolio-4.git" and press enter.
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere with no-cache, you can use this alias for `python3 -m http.server`.
+![alt text](static/images/readme/readme-clone.png)
 
-`http_server`
+### Run Website locally
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+To run server locally from terminal write :
+ * python3 manage.py runserver
+ * open in browser (click yes)
+ 
+#### Activate local database
+To use the local databse in settings.py line : 104-115 uncomment below "# local Database" 
+* DATABASES = {
+    'default': {
+       'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
+And comment out 
+#production DB
+* DATABASES = {
+     'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+ }
+ 
+ and comment ut SECRET_KEY = os.environ.get('SECRET_KEY') in settings.py
+## Agile
 
-In Codeanywhere you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+Agile development was used during development of this site project board can be found :
+* https://github.com/users/CamillaTH/projects/6/views/1
 
-To log into the Heroku toolbelt CLI:
+![alt text](static/images/readme/readme-agile.png)
 
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In Codeanywhere, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+## Frameworks
 
----
+* This application is using the python frameWork Django v3.2.21
+* Db is a postgresSql hosted on elephantsql.com.
+* Site is deployed at heroku.com.
+* jQuery is used as JS framwork.
+* Boostrap is used as HTML/css framwork.
+* Stripe as payment provider
 
-Happy coding!
+
+
+## Features 
+
+
+### Exsiting Features
+ 
+* User can create an account.
+* Users can sign in and sign out.
+* Users search products
+* users can filter products
+* Users can sort products
+* users can add products to cart
+* Users can add products with different sizes(if they have)
+* Users can view cart
+* Users can when in checkout make an order (payment sucess to stripe but currently bug to land on order confirmation page)
+ 
+ __ADMIN PANEL__
+
+![alt text](static/images/readme/django-admin.png)
+
+ 
+ __HOMEPAGE__
+
+Homepage where you can search for products and choose categories
+![alt text](static/images/readme/luna_readme_homepage.png)
+
+__PRODUCTFEED PAGE__
+
+Products feed page where you land if you pick an category or search for products. Shows product cards and shows information about every product. On this page users can also sort products on different criteras
+
+![alt text](static/images/readme/readme-productFeed.png)
+
+__PRODUCTDETAIL PAGE__
+
+On the product detailpage users can see more details about products and add products to cart, users should also be able to add reviews about products and make comments /rateings but its under construction only BE is done for that.
+
+![alt text](static/images/readme/readme-productDetail.png)
+
+__CART PAGE__
+
+Cart where user can view their products and add more or remove(currently a bug wiht removeing products) if user choose same products of different sizes the products are aranged on their own with its sizes.
+
+![alt text](static/images/readme/readme-cart.png)
+
+__CHECKOUT PAGE__
+
+checkout page where user can se a sum of thier prouducts and total price and see the delivery fee. Here the user can fill delivery info submit an order (currently not 100% finished) and pay with card using stripe
+
+![alt text](static/images/readme/readme-checkout.png)
+
+
+### SEO
+Robots.txt is added and allowed to crawl trough whole site
+
+### Not implemented Features 
+ There are some features that i planned but did not have time to implement.
+ * newsletter signup started with mailchimp but not integrated yet
+ ![alt text](static/images/readme/mailchimpimage.png)
+
+ * remove from cart currently a bug. 
+
+## Testing
+ 
+ * To run python test in terminal write: "python manage.py test"
+ 
+### Python test results
+![alt text](static/images/readme/readme-pythonTest.png)
+
+### Lighthouse score 
+![alt text](static/images/readme/readme-lighthouse.png)
+
+lighthouse score can definitely be imporoved. 
+
+### Responsvie testing 
+    Of some reason it does not work with Heroku apps and responsive checker (i tested different ones just got a blank screen...)
+
+
+### Validator Testing
+
+ HTML:
+   No errors were found when code was injected into the official (https://validator.w3.org/)
+* CSS:
+   No errors were found when code was injected into the official https://jigsaw.w3.org/css-validator
+* JS validation: Javascript validation using https://jshint.com (alot of missing semicolons where detected and fixed)
+* JS format: Fixed formating of Js code using https://beautifier.io
+
+
+### Bugs
+
+Bugs that are confimred and not fixed:
+* remeoving products 
+* submitting an order, stripe recives payment but order confirmation is not rendered
+* favioicon now showing when deployed to Heroku (known problem)
+* custom 404 page does not render, have done accrodring to the pattern need to be investigated more..
+
+
+### Overal thoughts 
+Im not super happy with the design but i had to focus on the functions first handed to have time to finish the project on time.
+But the overall design and contrasts of the colors can be imporved ALOT!
+ 
+
+## Credits 
+
+Inspiration taken from code insitutes rock papper scissors game made by code insitute.
+
+* For blinking effect this guide was used
+https://www.w3docs.com/snippets/css/how-to-create-a-blinking-effect-with-css3-animations.html
+* For to convert an png image to favicon (.ico format) 
+https://cloudconvert.com/ico-converter tool was used.
+* to create the logo i used adobe https://www.adobe.com/express/create/logo
+* To make images transparent https://www.remove.bg/ tool was used
+* for icons i use fontawsome https://fontawesome.com/icons
+
