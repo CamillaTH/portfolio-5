@@ -10,7 +10,7 @@ class OrderFormTest(TestCase):
 
     def test_form_widget_attributes(self):
         form = OrderForm()
-        self.assertEqual(form.fields['first_name'].widget.attrs['placeholder'], 'First name *')
+        self.assertEqual(form.fields['first_name'].widget.attrs['placeholder'], 'First name')
     
 
     def test_form_required_fields(self):
