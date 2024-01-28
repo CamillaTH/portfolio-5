@@ -110,6 +110,9 @@ checkout page where user can se a sum of thier prouducts and total price and see
 
 ![alt text](static/images/readme/readme-checkout.png)
 
+### Marketing
+Zamashop facebook page
+![alt text](static/images/readme/readme-zamashopFacebookpage.png)
 
 ### SEO
 Robots.txt is added and allowed to crawl trough whole site
