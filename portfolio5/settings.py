@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     'cloudinary',
     'crispy_forms',
     'crispy_bootstrap5',
-   # 'bootstrap5',
+    'storages',
     'django_summernote',
     'portfolio5',
     'home',
@@ -187,6 +187,25 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 FREE_SHIPPING_THRESHOLD = 60
 STANDARD_SHIPPING_PRICE = 15
+
+if 'USE_AWS' in os.environ:
+    # AWS S3 bucket config 
+    AWS_STOREAGE_BUCKET_NAME = 'protfolio-5-herokuapp'
+    AWS_S3_REGION_NAME = 'Europe (Stockholm) eu-north-1'
+    AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+    AWS_SECRET_KEY = os.environ.get('AWS_SECRET_KEY')
+    AWS_S3_CUSTOM_DOMAIN = f'{AWS_STOREAGE_BUCKET_NAME}.se.amazonaws.com'
+
+     # Static and media files
+    STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+    STATICFILES_LOCATION = 'static'
+    DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+    MEDIAFILES_LOCATION = 'media'
+
+    # Override static and media URLs in production
+    STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
+    MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
+
 
 #stripe
 STRIPE_CURRENCY ='eur'
