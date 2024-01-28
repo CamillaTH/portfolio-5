@@ -355,6 +355,11 @@ button:hover {
     background-color: #fefde5 !important;
     }
 
+#card-element {
+    margin-top: 25px;
+    margin-bottom: 50px;
+}
+
   /*---------------------------------------
   Media querys for smaller screens   
 -----------------------------------------*/
