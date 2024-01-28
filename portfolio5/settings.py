@@ -193,7 +193,7 @@ useAWS = 'USE_AWS' in os.environ
 print(f"useAWS-----------------: {useAWS}")
 if 'USE_AWS' in os.environ:
 
-    print(f"AWS_STORAGE_BUCKET_NAME------------------------------: {AWS_STORAGE_BUCKET_NAME}")
+
 
     # AWS S3 bucket config 
     AWS_STOREAGE_BUCKET_NAME = 'protfolio-5-herokuapp'
