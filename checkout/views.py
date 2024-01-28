@@ -1,9 +1,15 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import (
+    render, redirect, reverse, get_object_or_404, HttpResponse
+)
 from django.contrib import messages
 from django.conf import settings
 from .forms import OrderForm
 from cart.context import cart_entries
+from products.models import Product
+from .models import Order, OrderEntry
+
 import stripe
+import json
 
 def checkout(request):
     """ View that shows the checkout page and validates cart exists and have entries and post orders"""
@@ -12,7 +18,60 @@ def checkout(request):
     
     if request.method == 'POST':
         cart = request.session.get('cart', {})
-        
+
+        form_data = {
+            'first_name': request.POST['first_name'],
+            'last_name': request.POST['last_name'],
+            'email': request.POST['email'],
+            'phone': request.POST['phone'],
+            'country': request.POST['country'],
+            'postcode': request.POST['postcode'],
+            'city': request.POST['city'],
+            'street_address': request.POST['street_address'],
+        }
+        order_form = OrderForm(form_data)
+        if order_form.is_valid():
+            order = order_form.save(commit=False)
+            pid = request.POST.get('client_secret').split('_secret')[0]
+            order.stripe_pid = pid
+            order.original_cart = json.dumps(cart)
+            order.save()
+            for item_id, item_data in bag.items():
+                try:
+                    product = Product.objects.get(id=item_id)
+                    if isinstance(item_data, int):
+                        order_entry_item = OrderEntry(
+                            order=order,
+                            product=product,
+                            quantity=item_data,
+                        )
+                        order_entry_item.save()
+                    else:
+                        for size, quantity in item_data['items_by_size'].items():
+                            order_entry_item = OrderEntry(
+                                order=order,
+                                product=product,
+                                quantity=quantity,
+                                product_size=size,
+                            )
+                            order_entry_item.save()
+                except Product.DoesNotExist:
+                    messages.error(request, (
+                        "One of the products in your cart wasn't "
+                        "found in our database. "
+                        "Please call us for assistance!")
+                    )
+                    order.delete()
+                    return redirect(reverse('view_cart'))
+            
+            request.session['save_info'] = 'save-info' in request.POST
+            return redirect(reverse('checkout_success',
+                                    args=[order.order_number]))
+
+        else:
+            messages.error(request, ('There was an error in the form.'
+                                     'Please double check your information.'))
+
     else: # form not submitted get checkout data an init payment
         cart = request.session.get('cart', {})
         cart_items = request.session.get('cart_entries', [])
@@ -40,3 +99,42 @@ def checkout(request):
     }
 
     return render(request, 'checkout/checkout.html', context)
+
+
+def checkout_success(request, order_number):
+    """ Handle successful checkout """
+    save_info = request.session.get('save_info')
+    order = get_object_or_404(Order, order_number=order_number)
+
+    if request.user.is_authenticated:
+        profile = UserProfile.objects.get(user=request.user)
+        order.user_profile = profile
+        order.save()
+
+        # Save the user's info
+        if save_info:
+            profile_data = {
+                'default_phone': order.phone,
+                'default_country': order.country,
+                'default_postcode': order.postcode,
+                'default_town_or_city': order.town_or_city,
+                'default_street_address': order.street_address,
+                'default_email': order.email,
+            }
+            user_profile_form = UserProfileForm(profile_data, instance=profile)
+            if user_profile_form.is_valid():
+                user_profile_form.save()
+
+    messages.success(request, f'Order successfully processed! \
+        Your order number is {order_number}. A confirmation \
+        email will be sent to {order.email}.')
+
+    if 'cart' in request.session:
+        del request.session['cart']
+
+    template = 'checkout/checkout_success.html'
+    context = {
+        'order': order,
+    }
+
+    return render(request, template, context)

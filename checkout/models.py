@@ -19,6 +19,8 @@ class Order(models.Model):
     date = models.DateTimeField(auto_now=True)
     country = models.CharField(max_length=45, null=True, blank=True)
     city = models.CharField(max_length=45, null=True, blank=True)
+    stripe_pid = models.CharField(max_length=254, null=False, blank=False, default='')
+    original_cart = models.TextField(null=False, blank=False, default='')
     
     def save(self, *args, **kwargs):
         ''' overrides original savemethod produces a unique 16-digit order number with the last 8 digits as the order date'''
