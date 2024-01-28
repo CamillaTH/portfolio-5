@@ -191,7 +191,7 @@ STANDARD_SHIPPING_PRICE = 15
 if 'USE_AWS' in os.environ:
     # AWS S3 bucket config 
     AWS_STOREAGE_BUCKET_NAME = 'protfolio-5-herokuapp'
-    AWS_S3_REGION_NAME = 'Europe (Stockholm) eu-north-1'
+    AWS_S3_REGION_NAME = 'eu-north-1'
     AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
     AWS_SECRET_KEY = os.environ.get('AWS_SECRET_KEY')
     AWS_S3_CUSTOM_DOMAIN = f'{AWS_STOREAGE_BUCKET_NAME}.se.amazonaws.com'
