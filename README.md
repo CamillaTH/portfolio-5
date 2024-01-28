@@ -110,9 +110,22 @@ checkout page where user can se a sum of thier prouducts and total price and see
 
 ![alt text](static/images/readme/readme-checkout.png)
 
-### Marketing
+### Marketing strategies
 Zamashop facebook page
 ![alt text](static/images/readme/readme-zamashopFacebookpage.png)
+
+#### Social Media Marketing:
+Use platforms like Instagram, Facebook, Pinterest, and Twitter to showcase your clothing products.
+Run targeted ads to reach specific demographics based on age, location, interests, and online behavior.
+Collaborate with influencers and fashion bloggers for sponsored posts and reviews.
+
+#### Content Marketing:
+Start a fashion blog on your website, providing style tips, fashion trends, and outfit ideas.
+Create engaging and shareable content, such as videos, infographics, and articles related to fashion.
+  
+#### Email Marketing: 
+Build an email list by offering discounts or exclusive content in exchange for subscribers.
+Send personalized and targeted emails with new arrivals, promotions, and special offers. Send emails using mailchimp
 
 ### SEO
 Robots.txt is added and allowed to crawl trough whole site
