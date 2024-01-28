@@ -120,6 +120,7 @@ Robots.txt is added and allowed to crawl trough whole site
  ![alt text](static/images/readme/mailchimpimage.png)
 
  * remove from cart currently a bug. 
+ * move media to AWS
 
 ## Testing
  
