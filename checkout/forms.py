@@ -33,6 +33,7 @@ class OrderForm(forms.ModelForm):
         for field in self.fields:
             self.fields[field].widget.attrs['placeholder'] = placeholders[field]
             self.fields[field].widget.attrs['class'] = 'form-control'
+            self.fields[field].widget.attrs['class'] = 'stripe-style-input'
 
         self.helper.layout = Layout(
             Row(

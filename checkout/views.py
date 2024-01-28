@@ -15,6 +15,8 @@ def checkout(request):
 
     context = {
         'order_form': order_form,
+        'stripe_public_key': 'pk_test_51OdKSMAf4obymTxj7wy2j3e9yC8RGV7ZryVFJTMqIr4bPtOZDiiAD6IS32depUKbmdMngXmLPpO9wyEyHdTZ06yL00Gul5FQeT',
+        'stripe_client_secret': 'sk_test_51OdKSMAf4obymTxjSFXa2YVcb3EtiLDy9xJOcjA1v2gvoPgkdd1LsdVvR6sYKadWbZGVMUvp1PginrzTek3OJZBU00MIkB94Of',
     }
 
     return render(request, 'checkout/checkout.html', context)
