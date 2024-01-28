@@ -49,7 +49,6 @@ INSTALLED_APPS = [
     'cloudinary',
     'crispy_forms',
     'crispy_bootstrap5',
-    'storages',
     'django_summernote',
     'portfolio5',
     'home',
@@ -57,6 +56,7 @@ INSTALLED_APPS = [
     'cart',
     'checkout',
     'user',
+    'storages',
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
@@ -172,10 +172,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
+#STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+
 STATIC_URL = '/static/'
-STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -189,8 +189,6 @@ FREE_SHIPPING_THRESHOLD = 60
 STANDARD_SHIPPING_PRICE = 15
 
 if 'USE_AWS' in os.environ:
-
-
 
     # AWS S3 bucket config 
     AWS_STOREAGE_BUCKET_NAME = 'protfolio-5-herokuapp'
