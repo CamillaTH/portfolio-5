@@ -167,10 +167,11 @@
             <div class="row align-items-center">
                 <div class="col-lg-4 col-12 mb-4 mb-lg-0">
                     <div class="subscribe-form-wrap">
-                        <h6>Subscribe and products news updates!</h6>
-                        <form class="subscribe-form" action="#" method="post" role="form">
+                        <h6>Subscribe and get products news updates!</h6>
+                        <form class="subscribe-form" method="post" action="{% url 'subscribe_newsletter' %}" role="form">
+                            {% csrf_token %}
                             <div class="input-group">
-                                <input type="email" name="subscribe-email" id="subscribe-email" pattern="[^@]*@[^@]*" class="form-control" placeholder="Email Address" required="">
+                                <input type="email" name="subscribe-email" id="subscribe-email" pattern="[^@]*@[^@]*" class="form-control" placeholder="Email Address" required>
                                 <button type="submit" class="btn btn-primary">Subscribe</button>
                             </div>
                         </form>
