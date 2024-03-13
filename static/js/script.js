@@ -152,4 +152,27 @@ $(function(){
             $('#' + formId).submit();
         });
     });
+
+    // Display thank you message after subscribing for newsletter 
+    $(document).ready(function() {
+        // Intercept form submission
+        $(".subscribe-form").submit(function(e) {
+            // Display the thank-you message
+            showThankYouMessage();
+        });
+    
+        function showThankYouMessage() {
+            // Hide the form
+            $(".subscribe-form").hide();
+    
+            // Display the thank-you message
+            $("<h3>Thank you for subscribing!</h3>").insertBefore(".subscribe-form");
+    
+            // Set a timeout to show the form again and remove the thank-you message after 2 seconds
+            setTimeout(function() {
+                $(".subscribe-form").show();
+                $("h3:contains('Thank you for subscribing!')").remove();
+            }, 2000);
+        }
+    });
 });
