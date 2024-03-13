@@ -84,5 +84,7 @@ def index(request):
 
 def custom_404_view(request, exception):
     ''' render 404 page '''
+    #This custom 404 view i never called have tried alot of different apporaches..
+    print("call 404")
     return render(request, '404.html', status=404)
     
