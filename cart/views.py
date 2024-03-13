@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.http import HttpResponse
 from django.views.decorators.http import require_POST
 from products.models import Product
 
@@ -40,3 +41,25 @@ def add_to_cart(request, product_id):
 
     request.session['cart'] = cart
     return redirect(redirect_url)
+
+def remove_entry_from_cart(request, item_id):
+    """Remove the entry from the cart"""
+
+    try:
+        size = None
+        if 'product_size' in request.POST:
+            size = request.POST['product_size']
+        cart = request.session.get('cart', {})
+
+        if size:
+            del cart[item_id]['items_by_size'][size]
+            if not cart[item_id]['items_by_size']:
+                cart.pop(item_id)
+        else:
+            cart.pop(item_id)
+
+        request.session['cart'] = cart
+        return HttpResponse(status=200)
+
+    except Exception as e:
+        return HttpResponse(status=500)

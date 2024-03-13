@@ -62,7 +62,7 @@
                                             {% endif %}
                                         </form>
                                         <a class="update-entry" href="">Update <i class="fa-solid fa-cart-plus update-entry-icon"></i></a>
-                                        <a class="remove-entry" id="remove_entry-{{ entry.entry_id }}" data-size="{{ entry.size }}" href="">Remove <i class="fa-solid fa-trash-can remove-entry-icon"></i></a>
+                                        <a class="remove-entry" data-item-id="{{ entry.entry_id }}" data-size="{{ entry.size }}" href="#">Remove <i class="fa-solid fa-trash-can remove-entry-icon"></i></a>
                                     </td>
                                     <td>
                                         <p class="bold">€ {{ entry.entry_total_price }}</p>

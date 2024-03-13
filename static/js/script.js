@@ -95,4 +95,51 @@ $(function(){
             form.submit();
         });
     });
+
+    //remove entry from cart and reload 
+    $(document).ready(function() {
+        $('.remove-entry').on('click', function(e) {
+            e.preventDefault();
+            var item_id = $(this).data('item-id');
+            var size = $(this).data('size');
+            
+            // Get the CSRF token from the cookie
+            var csrftoken = getCookie('csrftoken');
+    
+            $.ajax({
+                type: 'POST',
+                url: '/cart/remove/' + item_id + '/',
+                data: {
+                    'product_size': size,
+                    csrfmiddlewaretoken: csrftoken
+                },
+                headers: {
+                    'X-CSRFToken': csrftoken
+                },
+                success: function(data) {
+                    // Reload the page after successful removal
+                    location.reload();
+                },
+                error: function(error) {
+                    console.log(error);
+                }
+            });
+        });
+    
+        // Function to retrieve the CSRF token from the cookie
+        function getCookie(name) {
+            var cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                var cookies = document.cookie.split(';');
+                for (var i = 0; i < cookies.length; i++) {
+                    var cookie = cookies[i].trim();
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+    });
 });
