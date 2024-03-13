@@ -63,3 +63,29 @@ def remove_entry_from_cart(request, item_id):
 
     except Exception as e:
         return HttpResponse(status=500)
+
+def update_cart_quantity(request, item_id):
+    """Adjust the quantity of the specified product to the specified amount"""
+
+    quantity = int(request.POST.get('quantity'))
+    size = None
+    
+    if 'product_size' in request.POST:
+        size = request.POST['product_size']
+    cart = request.session.get('cart', {})
+
+    if size:
+        if quantity > 0:
+            cart[item_id]['items_by_size'][size] = quantity
+        else:
+            del cart[item_id]['items_by_size'][size]
+            if not cart[item_id]['items_by_size']:
+                cart.pop(item_id)
+    else:
+        if quantity > 0:
+            cart[item_id] = quantity
+        else:
+            cart.pop(item_id)
+
+    request.session['cart'] = cart
+    return redirect('view_cart')

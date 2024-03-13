@@ -48,20 +48,20 @@
                                         <p class="bold">€ {{ entry.product.price }}</p>
                                     </td>
                                     <td>
-                                        <form class="update-qty-cart-form" method="POST">
+                                        <form class="form update-form" method="POST" action="{% url 'update_cart_quantity' entry.product.id %}" id="update-form-{{ entry.product.id }}">
                                             {% csrf_token %}
-                                            <div class="form-buttons-wrapper">                            
+                                            <div class="form-buttons-wrapper">
                                                 <button data-item-id="{{ entry.product.id }}" id="decrement-qty_{{ entry.product.id }}" class="decrement-button-cart">-</button>
-                                                <input class="quantity-shower-cart" id="quantity-shower-cart_{{ entry.product.id }}" data-item-id="{{ entry.product.id }}" 
-                                                type="number" name="quantity" value="{{ entry.qty }}" max="999">
+                                                <input class="quantity-shower-cart" id="quantity-shower-cart_{{ entry.product.id }}" data-item-id="{{ entry.product.id }}" type="number" name="quantity" value="{{ entry.qty }}" max="999">
                                                 <button data-item-id="{{ entry.product.id }}" id="increment-qty_{{ entry.product.id }}" class="increment-button-cart">+</button>
                                                 <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                                                {% if entry.product.has_sizes %}
+                                                    <input type="hidden" name="product_size" value="{{ entry.size }}">
+                                                {% endif %}
                                             </div>
-                                            {% if entry.product.has_sizes %}
-                                                <input type="hidden" name="product_size" value="{{ entry.size }}">
-                                            {% endif %}
                                         </form>
-                                        <a class="update-entry" href="">Update <i class="fa-solid fa-cart-plus update-entry-icon"></i></a>
+                                        <a class="update-entry" data-form-id="update-form-{{ entry.product.id }}" href="#">Update <i class="fa-solid fa-cart-plus update-entry-icon"></i></a>
+                                        
                                         <a class="remove-entry" data-item-id="{{ entry.entry_id }}" data-size="{{ entry.size }}" href="#">Remove <i class="fa-solid fa-trash-can remove-entry-icon"></i></a>
                                     </td>
                                     <td>
