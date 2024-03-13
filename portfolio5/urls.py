@@ -1,29 +1,37 @@
-"""portfolio5 URL Configuration
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/3.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
-from django.contrib import admin
-from django.contrib.sitemaps.views import sitemap 
 from django.urls import path, include, re_path
+from django.urls.base import reverse  # Import reverse from django.urls.base
+from django.contrib.sitemaps.views import sitemap
+from django.contrib.sitemaps import Sitemap
+from datetime import datetime
+from django.contrib.staticfiles.views import serve
 from django.conf import settings
 from django.conf.urls.static import static
-from django.contrib.staticfiles.views import serve
-from django.conf.urls import handler404
+from django.contrib import admin
+from products.models import Product
 from home.views import custom_404_view
 
 handler404 = custom_404_view
 
+class CustomSitemap(Sitemap):
+    changefreq = 'daily'
+    priority = 0.5
+
+    def items(self):
+        
+        return Product.objects.all()
+        
+      #  return [
+       #     'home',
+        #    'products',
+        #    'view_cart',
+        #    'checkout',
+        #]
+
+    def location(self, item):
+        return 'product_id/' + str(item.pk)
+
+    def lastmod(self, obj):
+        return datetime.now()
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -32,6 +40,6 @@ urlpatterns = [
     path('products/', include('products.urls')),
     path('cart/', include('cart.urls')),
     path('checkout/', include('checkout.urls')),
+    path('sitemap.xml', sitemap, {'sitemaps': {'custom': CustomSitemap}, 'template_name': 'sitemap.xml.template'}),
     re_path(r'^robots.txt$', serve, {'path': 'robots.txt'}),
-    
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

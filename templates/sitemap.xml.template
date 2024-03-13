@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    {% for product in sitemap.items %}
+        <url>
+            <loc>{{ product.location }}</loc>
+            {% if product.lastmod %}<lastmod>{{ product.lastmod|date:"Y-m-d" }}</lastmod>{% endif %}
+            {% if product.changefreq %}<changefreq>{{ product.changefreq }}</changefreq>{% endif %}
+            {% if product.priority is not None %}<priority>{{ product.priority }}</priority>{% endif %}
+        </url>
+    {% endfor %}
+</urlset>
