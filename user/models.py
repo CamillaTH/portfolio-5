@@ -21,3 +21,16 @@ class Wishlist(models.Model):
 
     def __str__(self):
         return f"Wishlist for {self.user.username}"
+
+class SiteMessage(models.Model):
+    ''' Model that stores messages employees can show the users '''
+    location_choices = (
+        ('HEADER', 'Header'),
+        ('CART', 'Cart'),
+    )
+    location = models.CharField(max_length=10, choices=location_choices, unique=True)
+    message = models.TextField()
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.location} Message"

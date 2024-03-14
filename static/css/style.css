@@ -115,7 +115,7 @@ button:hover {
     color:#0d67b4;
 }
 
-.free-shipping {
+.header-message {
     background-color: #FFFFFF;
 }
 
@@ -128,7 +128,7 @@ button:hover {
     }
 }
 
-.free-shipping h2 
+.header-message h2, .cart-message 
 {
     padding-top: 7px;
     animation: blink 1s infinite;

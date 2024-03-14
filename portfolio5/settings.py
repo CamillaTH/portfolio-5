@@ -95,6 +95,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 #'django.template.context_processor.media',
                 'cart.context.cart_entries',
+                'user.context_processors.site_messages',
             ],
         },
     },

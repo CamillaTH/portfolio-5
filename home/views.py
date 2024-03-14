@@ -5,6 +5,16 @@ from mailchimp_marketing.api_client import ApiClientError
 from mailchimp_marketing import Client
 import os
 
+def index(request):
+    """ View that returns the index page """
+    
+    return render(request, 'home/index.html')
+
+def custom_404_view(request, exception):
+    ''' render 404 page '''
+    #This custom 404 view i never called have tried alot of different apporaches..
+    print("call 404")
+    return render(request, '404.html', status=404)
 
 # Configure Mailchimp
 MAILCHIMP_API_KEY = os.environ.get('MAILCHIMP_API_KEY')
@@ -75,16 +85,4 @@ def send_newsletter(email):
 
     except ApiClientError as e:
         print(f"Error sending newsletter: {e.text}")
-
-
-def index(request):
-    """ View that returns the index page """
-    
-    return render(request, 'home/index.html')
-
-def custom_404_view(request, exception):
-    ''' render 404 page '''
-    #This custom 404 view i never called have tried alot of different apporaches..
-    print("call 404")
-    return render(request, '404.html', status=404)
     
