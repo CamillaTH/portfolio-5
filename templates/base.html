@@ -99,61 +99,38 @@
         </div>
         <div class="row">
             <div class="products-nav all-products col">
-                <button class="sorting-button btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#filterCollapseAll" aria-expanded="false" aria-controls="filterCollapseAll">
-                    All products:
-                </button>
-                <!-- Collapse mainnav menu -->
-                <div class="collapse mt-2" id="filterCollapseAll">
-                    <ul class="list-unstyled">
-                        <li><a href="{% url 'products' %}">All products</a></li>
-                        <li><a href="{% url 'products' %}?sort=price&direction=asc">Price</a></li>
-                        <li><a href="{% url 'products' %}?sort=category&direction=asc">Category</a></li>
-                        <li><a href="{% url 'products' %}?sort=rating&direction=desc">Rating</a></li>
-                    </ul>
-                </div>
+                <select id="sort-all-products" class="sorting-button btn btn-primary">
+                    <option value="{% url 'products' %}">Alphabetic Order</option>
+                    <option value="{% url 'products' %}?sort=price&direction=asc">Price (Lowest to Highest)</option>
+                    <option value="{% url 'products' %}?sort=category&direction=asc">Category (A-Z)</option>
+                    <option value="{% url 'products' %}?sort=rating&direction=desc">Rating (Highest to Lowest)</option>
+                </select>
             </div>
             
             <div class="products-nav all-homewear col">
-                <button class="sorting-button btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#filterCollapseHomewear" aria-expanded="false" aria-controls="filterCollapseHomewear">
-                    Homewear:
-                </button>
-                <!-- Collapse mainnav menu -->
-                <div class="collapse mt-2" id="filterCollapseHomewear">
-                    <ul class="list-unstyled">
-                        <li><a href="{% url 'products' %}?category=kitchen_dining">Kitchen and Dining</a></li>
-                        <li><a href="{% url 'products' %}?category=bed_bath">Bed and Bath</a></li>
-                        <li><a href="{% url 'products' %}?category=bed_bath,kitchen_dining">All Homewear</a></li>
-                    </ul>
-                </div>
+                <select id="sort-homewear" class="sorting-button btn btn-primary">
+                    <option value="{% url 'products' %}?category=kitchen_dining">Kitchen and Dining</option>
+                    <option value="{% url 'products' %}?category=bed_bath">Bed and Bath</option>
+                    <option value="{% url 'products' %}?category=bed_bath,kitchen_dining">All Homewear</option>
+                </select>
             </div>
             
             <div class="products-nav all-clothes col">
-                <button class="sorting-button btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#filterCollapseClothes" aria-expanded="false" aria-controls="filterCollapseClothes">
-                    Clothes:
-                </button>
-                <!-- Collapse mainnav menu -->
-                <div class="collapse mt-2" id="filterCollapseClothes">
-                    <ul class="list-unstyled">
-                        <li><a href="{% url 'products' %}?category=activewear,essentials">Jeans</a></li>
-                        <li><a href="{% url 'products' %}?category=shirts">Shirts</a></li>
-                        <li><a href="{% url 'products' %}?category=jeans">ActiveWear & Essentials</a></li>
-                        <li><a href="{% url 'products' %}?category=activewear,essentials,jeans,shirts">All Clothes</a></li>
-                    </ul>
-                </div>
+                <select id="sort-clothes" class="sorting-button btn btn-primary">
+                    <option value="{% url 'products' %}?category=activewear,essentials">Jeans</option>
+                    <option value="{% url 'products' %}?category=shirts">Shirts</option>
+                    <option value="{% url 'products' %}?category=jeans">ActiveWear & Essentials</option>
+                    <option value="{% url 'products' %}?category=activewear,essentials,jeans,shirts">All Clothes</option>
+                </select>
             </div>
-            <div class="products-nav all-clothes col">
-                <button class="sorting-button btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#filterCollapseSpecials" aria-expanded="false" aria-controls="filterCollapseSpecials">
-                    Specials:
-                </button>
-                <!-- Collapse mainnav menu -->
-                <div class="collapse mt-2" id="filterCollapseSpecials">
-                    <ul class="list-unstyled">
-                        <li><a href="{% url 'products' %}?category=deals">Deals</a></li>
-                        <li><a href="{% url 'products' %}?category=new_arrivals">New Arrivals</a></li>
-                        <li><a href="{% url 'products' %}?category=clearance">Clearance</a></li>
-                        <li><a href="{% url 'products' %}?category=deals,new_arrivals,clearance">All specials</a></li>
-                    </ul>
-                </div>
+            
+            <div class="products-nav all-specials col">
+                <select id="sort-specials" class="sorting-button btn btn-primary">
+                    <option value="{% url 'products' %}?category=deals">Deals</option>
+                    <option value="{% url 'products' %}?category=new_arrivals">New Arrivals</option>
+                    <option value="{% url 'products' %}?category=clearance">Clearance</option>
+                    <option value="{% url 'products' %}?category=deals,new_arrivals,clearance">All Specials</option>
+                </select>
             </div>
         </div>
         <div class="row header-message">

@@ -31,6 +31,19 @@ $(function(){
         window.location.replace(currentUrl);
     });
 
+    // Function to handle sort select change
+    $(document).ready(function() {
+        $('#sort-all-products, #sort-homewear, #sort-clothes, #sort-specials').change(function() {
+            var selectedValue = $(this).val();
+            var currentUrl = new URL(window.location.href);
+
+            // If selected value is not empty
+            if (selectedValue) {
+                window.location.href = selectedValue; // Redirect to the selected URL
+            }
+        });
+    });
+
     $(document).ready(function () {
         // Show/hide the button based on scroll position
         $(window).scroll(function () {

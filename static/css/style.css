@@ -89,7 +89,7 @@ button:hover {
 }
 
 .sorting-button {
-    background-color: #007bff; 
+    background-color: #0d67b4; 
     color: FFFFFF; 
 }
 
@@ -99,7 +99,7 @@ button:hover {
 }
 
 #filterCollapse ul.list-unstyled li:not(.active):hover {
-    background-color: #007bff; 
+    background-color: #0d67b4; 
     color: #FFFFFF; 
 }
 
@@ -117,6 +117,7 @@ button:hover {
 
 .header-message {
     background-color: #FFFFFF;
+    margin-top: 78px;
 }
 
 @keyframes blink {
@@ -134,7 +135,6 @@ button:hover {
     animation: blink 1s infinite;
 }
 
-
 /* products page */
 .product-overlay {
     width: 100%;
@@ -144,6 +144,14 @@ button:hover {
     background: #FFFFFF;
     z-index: -1;
     position: fixed;
+}
+
+.products-page-heading {
+    margin-left: 12px;
+}
+
+.categories-btn {
+    min-width: 200px;
 }
 
 .increment-icon {
