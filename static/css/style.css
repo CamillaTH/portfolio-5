@@ -346,6 +346,25 @@ button:hover {
     margin-top: 25px;
 }
 
+/* Logout page */
+.logout-wrapper button {
+    margin-bottom: 30px;
+    min-width: 300px;
+}
+
+.logout-wrapper h1 {
+    margin-bottom: 30px;
+}
+
+.logout-wrapper {
+    border-top: 2px solid #0d67b4;
+}
+
+/* subscribe newsletter from */
+.subscribe-form button {
+    background-color:#0d67b4;
+}
+
 /* Stripe */
 .StripeElement , .stripe-style-input {
     box-sizing: border-box;
@@ -377,11 +396,11 @@ button:hover {
     background-color: #fefde5 !important;
     }
 
-#card-element {
-    margin-top: 25px;
-    margin-bottom: 50px;
-}
-
+    #card-element {
+        margin-top: 25px;
+        margin-bottom: 50px;
+    }
+    
     /* Custom CSS for sidebar and overlay menu */
     @media (max-width: 991.98px) {
     .sidebar {
