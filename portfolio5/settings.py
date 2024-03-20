@@ -29,6 +29,29 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+        },
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': 'debug.log',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console', 'file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    },
+}
+
 ALLOWED_HOSTS = ['8000-camillath-portfolio5-tqyxofubj3n.ws-eu107.gitpod.io', 'portfolio-5.herokuapp.com', 'protfolio-5-a19d9a5d5d8d.herokuapp.com']
 CSRF_TRUSTED_ORIGINS = ['https://8000-camillath-portfolio5-ppnv5kx85p3.ws-eu106.gitpod.io']
 
@@ -139,28 +162,6 @@ DATABASES = {
      'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
  }
 
- LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'handlers': {
-        'console': {
-            'level': 'DEBUG',
-            'class': 'logging.StreamHandler',
-        },
-        'file': {
-            'level': 'DEBUG',
-            'class': 'logging.FileHandler',
-            'filename': 'debug.log',
-        },
-    },
-    'loggers': {
-        'django': {
-            'handlers': ['console', 'file'],
-            'level': 'DEBUG',
-            'propagate': True,
-        },
-    },
-}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
