@@ -46,18 +46,47 @@
                     <button class="navbar-toggler" type="button" data-bs-toggle="modal" data-bs-target="#overlayMenu">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <a class="navbar-brand me-lg-3" href="/">
-                        <img src="{% static 'images/zamashop-logo.png' %}"  class="logo-image img-fluid" alt="zamashop-logo">
-                    </a>
+                    <!-- Sidebar Menu - Always visible on smaller screens -->
+                    <div class="sidebar">
+                        <div class="sidebar-header d-lg-none">
+                            <a class="sidebar-brand" href="/">
+                                <img src="{% static 'images/zamashop-logo.png' %}" class="logo-image img-fluid" alt="zamashop-logo">
+                            </a>
+                            <button class="sidebar-toggler" type="button">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                        </div>
+                        <div class="sidebar-menu">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="/">Home</a>
+                                </li>
+                                {% if user.is_authenticated %}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/">account</a>
+                                </li>
+                                {% else %}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'account_login' %}">Login</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
+                                </li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </div>
                     <!-- Overlay Menu Modal -->
-                    <div class="modal fade" id="overlayMenu" tabindex="-1" aria-labelledby="overlayMenuLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-fullscreen menu-slide">
+                    <div class="modal fade menu-slide" id="overlayMenu" tabindex="-1" aria-labelledby="overlayMenuLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-fullscreen">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <a class="navbar-brand me-lg-5" href="/">
-                                        <img src="{% static 'images/zamashop-logo.png' %}"  class="logo-image img-fluid" alt="zamashop-logo">
+                                    <a class="navbar-brand me-lg-3" href="/">
+                                        <img src="{% static 'images/zamashop-logo.png' %}" class="logo-image img-fluid" alt="zamashop-logo">
                                     </a>
-                                    <h5 class="modal-title" id="overlayMenuLabel">Menu</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">

@@ -77,6 +77,13 @@ button:hover {
     cursor: pointer;
 }
 
+.search-form {
+    max-width: 600px;
+}
+
+.search-form button {
+    max-width: 150px;
+}
 
 /* Navbar */
 .products-nav {
@@ -375,22 +382,62 @@ button:hover {
     margin-bottom: 50px;
 }
 
-  /*---------------------------------------
-  Media querys for medium screens   
------------------------------------------*/
-@media (max-width: 993px) {
+    /* Custom CSS for sidebar and overlay menu */
+    @media (max-width: 991.98px) {
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: -260px;
+        width: 260px;
+        height: 100%;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        transition: left 0.3s ease;
+    }
+
+    .sidebar.open {
+        left: 0;
+    }
+
+    .sidebar-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        border-bottom: 1px solid #eee;
+    }
+
+    .sidebar-toggler {
+        border: none;
+        background: none;
+        font-size: 24px;
+    }
+
+    .sidebar-menu {
+        padding: 20px;
+    }
 
     .navbar-brand .logo-image{
         max-width: 43px;
         margin-left: 5px;
         margin-right: 5px;
     }
-}
 
-  /*---------------------------------------
-  Media querys for smaller screens   
------------------------------------------*/
-@media (max-width: 767px) {
+    .menu-slide .modal-dialog {
+        margin: 0;
+        width: 300px; /* Adjust the width as needed */
+        max-width: 90%;
+        transform: translateX(-100%);
+        transition: transform 0.5s ease;
+    }
+    
+    .menu-slide .modal.show .modal-dialog {
+        transform: translateX(0);
+    }
+    
+    #search-products {
+        margin-left: 5px;
+    }
 
     .product-count-sorting-wrapper {
         margin-bottom: 15px;
@@ -408,5 +455,23 @@ button:hover {
         max-width: 43px;
         margin-left: 5px;
         margin-right: 5px;
+    }
+
+}
+
+
+  /*---------------------------------------
+  Media querys for smaller screens   
+-----------------------------------------*/
+@media (max-width: 411px) {
+    .search-form {
+        max-width: 200px;
+    }
+    .search-form button {
+        max-width: 50px;
+    }
+    
+    .sorting-button {
+        min-width: 300px;
     }
 }
