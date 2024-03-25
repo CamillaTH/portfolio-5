@@ -55,6 +55,8 @@ class Order(models.Model):
         else:
             self.shipping_cost = 0
         self.total_price = self.subtotal + self.shipping_cost
+        print("tooooooooooooooooootalprice")
+        print(self.total_price)
         self.save()
 
     def __str__(self):
