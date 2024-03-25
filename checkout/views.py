@@ -54,7 +54,7 @@ def checkout(request):
                         )
                         order_entry_item.save()
                     else:
-                        for size, quantity in item_data['items_by_size'].items():
+                        for size, quantity in item_data['entries_by_size'].items():
                             order_entry_item = OrderEntry(
                                 order=order,
                                 product=product,
@@ -174,6 +174,7 @@ def cache_checkout_data(request):
     print(json.dumps(request.session.get('cart', {})))
     return HttpResponse(status=200)
     '''
+    Stripe always responds with 400 bad request and havent found any solution why...
     try:
         pid = request.POST.get('client_secret').split('_secret')[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY

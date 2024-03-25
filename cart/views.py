@@ -52,8 +52,8 @@ def remove_entry_from_cart(request, item_id):
         cart = request.session.get('cart', {})
 
         if size:
-            del cart[item_id]['items_by_size'][size]
-            if not cart[item_id]['items_by_size']:
+            del cart[item_id]['entries_by_size'][size]
+            if not cart[item_id]['entries_by_size']:
                 cart.pop(item_id)
         else:
             cart.pop(item_id)
@@ -76,10 +76,10 @@ def update_cart_quantity(request, item_id):
 
     if size:
         if quantity > 0:
-            cart[item_id]['items_by_size'][size] = quantity
+            cart[item_id]['entries_by_size'][size] = quantity
         else:
-            del cart[item_id]['items_by_size'][size]
-            if not cart[item_id]['items_by_size']:
+            del cart[item_id]['entries_by_size'][size]
+            if not cart[item_id]['entries_by_size']:
                 cart.pop(item_id)
     else:
         if quantity > 0:
