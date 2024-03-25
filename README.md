@@ -110,6 +110,24 @@ checkout page where user can se a sum of thier prouducts and total price and see
 
 ![alt text](static/images/readme/readme-checkout.png)
 
+__SITE MESSAGES__
+
+The Admins have the feature to dynamically change the site messages for the customer without deploying/change the code. That is possible using the custom model sitemessages from the admin panel. At the moment there are 2 places where the admin can change the site messages "header" and "cart" 
+
+Admin configured site message for the header.
+![alt text](static/images/readme/readme-header-message-admin.png)
+
+
+Configured site message message shown on site header
+![alt text](static/images/readme/readme-header-message-site.png)
+
+
+Admin configured site message for the cart.
+![alt text](static/images/readme/readme-cart-message-admin.png)
+
+Configured site message shown on cart page
+![alt text](static/images/readme/readme-cart--message-site.png)
+
 ### Marketing strategies
 Zamashop facebook page
 ![alt text](static/images/readme/readme-zamashopFacebookpage.png)
