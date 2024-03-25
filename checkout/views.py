@@ -130,14 +130,9 @@ def checkout_success(request, order_number):
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
     
-    # Send order confirmation email
+    #send order confirmation
     send_confirmation_email(order)
-    subject = 'Order Confirmation'
-    message = render_to_string('checkout/orderconfirmation_email.html', {'order': order})
-    email_from = settings.EMAIL_HOST_USER
-    recipient_list = [order.email]
-    send_mail(subject, message, email_from, recipient_list)
-
+    
     if request.user.is_authenticated:
         try:
             profile = UserProfile.objects.get(user=request.user)
