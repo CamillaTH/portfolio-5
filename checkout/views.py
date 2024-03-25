@@ -8,6 +8,8 @@ from .forms import OrderForm
 from cart.context import cart_entries
 from products.models import Product
 from .models import Order, OrderEntry
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
 
 from products.models import Product
 from user.models import UserProfile
@@ -102,7 +104,7 @@ def checkout(request):
                     'email': profile.user.email,
                     'phone_number': profile.default_phone,
                     'country': profile.default_country,
-                    'postcode': profile.default_postcode,
+                    'postal_code': profile.default_postcode,
                     'city': profile.default_city,
                     'street_address': profile.default_street_address,
                 })
@@ -127,8 +129,14 @@ def checkout_success(request, order_number):
     """ Handle successful checkout """
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
-    print("checkout sucess")
     
+    # Send order confirmation email
+    subject = 'Order Confirmation'
+    message = render_to_string('checkout/orderconfirmation_email.html', {'order': order})
+    email_from = settings.EMAIL_HOST_USER
+    recipient_list = [order.email]
+    send_mail(subject, message, email_from, recipient_list)
+
     if request.user.is_authenticated:
         try:
             profile = UserProfile.objects.get(user=request.user)
