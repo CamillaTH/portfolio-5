@@ -11,7 +11,7 @@ Toal price: ${{ order.total_price }}
 
 Your order will be shipped to: {{ order.street_address }} in {{ order.city }}, {{ order.country }}.
 
-Phone Numbe: {{ order.phone_number }}.
+Phone Numbe: {{ order.phone }}.
 
 If you have any questions, feel free to contact us at zamashop28@gmail.com
 
