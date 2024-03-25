@@ -85,17 +85,16 @@ class StripeWH_Handler:
         while attempt <= 5:
             try:
                 order = Order.objects.get(
-                    full_name__iexact=shipping_details.name,
-                    email__iexact=billing_details.email,
-                    phone__iexact=shipping_details.phone,
-                    country__iexact=shipping_details.address.country,
-                    postal_code__iexact=shipping_details.address.postal_code,
-                    city__iexact=shipping_details.address.city,
-                    street_address__iexact=shipping_details.address.line1,
-                    street_address__iexact=shipping_details.address.line2,
-                    total_price=grand_total,
-                    original_cart=cart,
-                    stripe_pid=pid,
+                full_name__iexact=shipping_details.name,
+                email__iexact=billing_details.email,
+                phone__iexact=shipping_details.phone,
+                country__iexact=shipping_details.address.country,
+                postal_code__iexact=shipping_details.address.postal_code,
+                city__iexact=shipping_details.address.city,
+                street_address__iexact=shipping_details.address.line1,
+                total_price=grand_total,
+                original_cart=cart,
+                stripe_pid=pid,
                 )
                 order_exists = True
                 break
