@@ -366,7 +366,7 @@ button:hover {
     background-color: #FFFFFF;
 }
 
-/* Logout page */
+/* Logout/login/signup page */
 .logout-wrapper button {
     margin-bottom: 30px;
     min-width: 300px;
@@ -378,6 +378,10 @@ button:hover {
 
 .logout-wrapper {
     border-top: 2px solid #0d67b4;
+}
+
+.signup-wrapper {
+    background-color: #FFFFFF;
 }
 
 /* subscribe newsletter from */
