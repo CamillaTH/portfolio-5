@@ -20,10 +20,10 @@ def checkout(request):
     """ View that shows the checkout page and validates cart exists and have entries and post orders"""
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
+    print("checkout here1")
     if request.method == 'POST':
-        print("heeeeeelo")
+        print("checkout here1 POST")
         cart = request.session.get('cart', {})
-        print("orderform request post")
         form_data = {
             'first_name': request.POST['first_name'],
             'last_name': request.POST['last_name'],
@@ -35,6 +35,7 @@ def checkout(request):
             'street_address': request.POST['street_address'],
         }
         order_form = OrderForm(form_data)
+        print(order_form)
         if order_form.is_valid():
             print("orderform valid")
             order = order_form.save(commit=False)
@@ -122,8 +123,8 @@ def checkout_success(request, order_number):
             profile_data = {
                 'default_phone': order.phone,
                 'default_country': order.country,
-                'default_postcode': order.postcode,
-                'default_town_or_city': order.town_or_city,
+                'default_postcode': order.postal_code,
+                'default_town_or_city': order.city,
                 'default_street_address': order.street_address,
                 'default_email': order.email,
             }
@@ -150,7 +151,8 @@ def cache_checkout_data(request):
     print(request.POST.get('save_info'))
     print(request.user)
     print(json.dumps(request.session.get('cart', {})))
-    
+    return HttpResponse(status=200)
+    '''
     try:
         pid = request.POST.get('client_secret').split('_secret')[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -165,4 +167,4 @@ def cache_checkout_data(request):
         messages.error(request, ('Sorry, your payment cannot be '
                                  'processed right now. Please try '
                                  'again later.'))
-        return HttpResponse(content=e, status=400)
+        return HttpResponse(content=e, status=400)'''

@@ -286,6 +286,22 @@ button:hover {
     min-height: 60px;
 }
 
+#payment-label {
+    font-size: 30px;
+    color: #0d67b4!important;
+    border-top: 2px #0d67b4 solid;
+    border-bottom: 2px #0d67b4 solid;
+}
+
+#address-fieldset {
+    border-bottom: 2px #0d67b4 solid;
+}
+
+
+#submit-button, #back-to-cart-btn {
+    font-size: 40px;
+}
+
 .remove-entry:hover, .update-entry:hover{
     margin-left: 5px;
     border-radius: 10px;
