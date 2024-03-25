@@ -22,9 +22,7 @@ def checkout(request):
     """ View that shows the checkout page and validates cart exists and have entries and post orders"""
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
-    print("checkout here1")
     if request.method == 'POST':
-        print("checkout here1 POST")
         cart = request.session.get('cart', {})
         form_data = {
             'first_name': request.POST['first_name'],
@@ -37,7 +35,6 @@ def checkout(request):
             'street_address': request.POST['street_address'],
         }
         order_form = OrderForm(form_data)
-        print(order_form)
         if order_form.is_valid():
             print("orderform valid")
             order = order_form.save(commit=False)
@@ -131,8 +128,10 @@ def checkout_success(request, order_number):
     order = get_object_or_404(Order, order_number=order_number)
     
     #send order confirmation
+    print("sending order confirmation")
+    print(order.total_price)
     send_confirmation_email(order)
-    
+
     if request.user.is_authenticated:
         try:
             profile = UserProfile.objects.get(user=request.user)
