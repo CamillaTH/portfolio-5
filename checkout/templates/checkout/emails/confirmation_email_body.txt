@@ -1,0 +1,20 @@
+HI {{ order.full_name }}!
+
+This is a confirmation of your order at ZAMASHOP. Your order information is below:
+
+Order Number: {{ order.order_number }}
+Order Date: {{ order.date }}
+
+Subtotal: ${{ order.subtotal }}
+Delivery cost: ${{ order.shipping_cost }}
+Toal price: ${{ order.total_price }}
+
+Your order will be shipped to: {{ order.street_address }} in {{ order.city }}, {{ order.country }}.
+
+Phone Numbe: {{ order.phone_number }}.
+
+If you have any questions, feel free to contact us at zamashop28@gmail.com
+
+Thank you for your order!
+
+regards ZAMASHOP
