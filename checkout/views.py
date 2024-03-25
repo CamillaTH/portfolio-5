@@ -131,6 +131,7 @@ def checkout_success(request, order_number):
     order = get_object_or_404(Order, order_number=order_number)
     
     # Send order confirmation email
+    send_confirmation_email(order)
     subject = 'Order Confirmation'
     message = render_to_string('checkout/orderconfirmation_email.html', {'order': order})
     email_from = settings.EMAIL_HOST_USER
@@ -174,6 +175,25 @@ def checkout_success(request, order_number):
     }
 
     return render(request, template, context)
+
+def send_confirmation_email(order):
+        """Send the user a confirmation email"""
+        print("seeeeeeeeeeeeeeeeeeeeeeeeeeeendEmail")
+        cust_email = order.email
+        subject = render_to_string(
+            'checkout/emails/confirmation_email_subject.txt',
+            {'order': order})
+        body = render_to_string(
+            'checkout/emails/confirmation_email_body.txt',
+            {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL})
+
+        send_mail(
+            subject,
+            body,
+            settings.DEFAULT_FROM_EMAIL,
+            [cust_email]
+        )
+
 
 @require_POST
 def cache_checkout_data(request):
