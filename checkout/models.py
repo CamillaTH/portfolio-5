@@ -7,7 +7,7 @@ from datetime import date
 
 class Order(models.Model):
     ''' Model that holds information about orders '''
-    order_number = models.CharField(max_length=17, null=False, editable=False)
+    order_number = models.CharField(max_length=20, null=False, editable=False)
     email = models.CharField(max_length=30, null=False, blank=False)
     phone = models.CharField(max_length=12, null=False, blank=False)
     first_name = models.CharField(max_length=30, null=False, blank=False)
