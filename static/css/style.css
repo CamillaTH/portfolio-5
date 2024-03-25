@@ -362,6 +362,10 @@ button:hover {
     margin-top: 25px;
 }
 
+.order-confirmation-wrapper {
+    background-color: #FFFFFF;
+}
+
 /* Logout page */
 .logout-wrapper button {
     margin-bottom: 30px;
