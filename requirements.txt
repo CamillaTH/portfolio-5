@@ -5,7 +5,7 @@ cloudinary==1.36.0
 crispy-bootstrap4==2022.1
 crispy-bootstrap5==0.7
 dj-database-url==2.1.0
-Django==3.2.23
+Django==4.2.7
 django-allauth==0.61.1
 django-bootstrap5==23.3
 django-cloudinary-storage==0.3.0
