@@ -40,7 +40,8 @@
          "category":2,
          "rating":4.7,
          "image_url":"http://s7d9.scene7.com/is/image/JCPenney/DP1230201417013175M.tif?hei=380&amp;wid=380&op_usm=.4,.8,0,0&resmode=sharp2&op_usm=1.5,.8,0,0&resmode=sharp",
-         "image":"DP1230201417013175M.jpg"
+         "image":"DP1230201417013175M.jpg",
+         "last_updated": "2024-03-25T10:00:00Z"
       }
    },
    {
