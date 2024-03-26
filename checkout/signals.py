@@ -5,10 +5,11 @@ from .models import OrderEntry
 @receiver(post_save, sender=OrderEntry)
 def update_on_save(sender, created, instance, **kwargs):
     ''' update  subtotal on orderEntry creation/update'''
-    instance.order.update_total_price()
+    print("update order entry")
+    instance.order.update_total()
 
 
 @receiver(post_delete, sender=OrderEntry)
 def update_on_save(sender, instance, **kwargs):
     ''' update  subtotal on orderEntry delete'''
-    instance.order.update_total_price()
+    instance.order.update_total()

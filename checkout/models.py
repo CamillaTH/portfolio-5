@@ -46,20 +46,18 @@ class Order(models.Model):
         # Combine both parts to form the 16-digit order number
         order_number = f"{random_part}-{order_date_part}"
         return order_number
-    def update_total_price(self):
-        print("update total price ")
-        print(self.subtotal)
-        print(self.orderEntries)
 
+    def update_total(self):
         ''' updates and calculates total price every time an orderEntry is added '''
-        self.subtotal = self.orderEntries.aggregate(Sum('entry_total'))['entry_total__sum'] or 0
+    
+        self.subtotal = self.orderEntries.aggregate(
+            Sum('entry_total'))['entry_total__sum'] or 0
         if self.subtotal < settings.FREE_SHIPPING_THRESHOLD:
-            self.shipping_cost = settings.STANDARD_SHIPPING_PRICE
+            sdp = settings.STANDARD_SHIPPING_PRICE
+            self.shipping_cost = self.subtotal * sdp / 100
         else:
-            self.shipping_cost = 0
+            self.delivery_cost = 0
         self.total_price = self.subtotal + self.shipping_cost
-        print("tooooooooooooooooootalprice")
-        print(self.total_price)
         self.save()
 
     def __str__(self):
