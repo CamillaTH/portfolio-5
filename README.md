@@ -108,7 +108,19 @@ __CHECKOUT PAGE__
 
 checkout page where user can se a sum of thier prouducts and total price and see the delivery fee. Here the user can fill delivery info submit an order (currently not 100% finished) and pay with card using stripe
 
+Product summary
+
 ![alt text](static/images/readme/readme-checkout.png)
+
+Cart payment
+
+![alt text](static/images/readme/readme-checkout2.png)
+
+__MOBILE MENU__
+
+For smaller screen the site have a sliding overlaying menu so everyting in the header can fit
+
+![alt text](static/images/readme/readme-mobilemenu.png)
 
 __SITE MESSAGES__
 
