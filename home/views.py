@@ -18,6 +18,7 @@ def custom_404_view(request, exception):
 
 def custom_500_view(request):
     ''' render 500 page '''
+    print("call 500")
     return render(request, '500.html', status=500)
 
 # Configure Mailchimp
