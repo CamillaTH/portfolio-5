@@ -313,6 +313,16 @@ margin-top: 5px;
   }
 
   /* Cart page*/
+
+.cart i.fa-cart-shopping {
+    transition: transform 0.3s ease;
+}
+
+/* CSS for hover effect */
+.cart:hover i.fa-cart-shopping {
+    transform: translateX(5px);
+}
+
  .cart-heading {
     margin-top: 25px;
  }
