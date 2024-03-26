@@ -278,8 +278,12 @@ margin-top: 5px;
     margin-top: 8px;
 }
 
-/* footer */
+/* 404 500 page */
+.error-page {
+    background-color: #FFFFFF;
+}
 
+/* footer */
 .site-footer {
     border-top: 2px solid #0d67b4;
     border-bottom: 2px solid #0d67b4;
