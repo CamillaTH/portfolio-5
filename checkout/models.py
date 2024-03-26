@@ -53,8 +53,7 @@ class Order(models.Model):
         self.subtotal = self.orderEntries.aggregate(
             Sum('entry_total'))['entry_total__sum'] or 0
         if self.subtotal < settings.FREE_SHIPPING_THRESHOLD:
-            sdp = settings.STANDARD_SHIPPING_PRICE
-            self.shipping_cost = self.subtotal * sdp / 100
+            self.shipping_cost = settings.STANDARD_SHIPPING_PRICE
         else:
             self.delivery_cost = 0
         self.total_price = self.subtotal + self.shipping_cost

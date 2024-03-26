@@ -3,13 +3,16 @@ from django.dispatch import receiver
 from .models import OrderEntry
 
 @receiver(post_save, sender=OrderEntry)
-def update_on_save(sender, created, instance, **kwargs):
-    ''' update  subtotal on orderEntry creation/update'''
-    print("update order entry")
+def update_on_save(sender, instance, created, **kwargs):
+    """
+    Update order total on orderEntry update/create
+    """
     instance.order.update_total()
 
 
 @receiver(post_delete, sender=OrderEntry)
-def update_on_save(sender, instance, **kwargs):
-    ''' update  subtotal on orderEntry delete'''
+def update_on_delete(sender, instance, **kwargs):
+    """
+    Update order total on orderEntry delete
+    """
     instance.order.update_total()
