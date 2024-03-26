@@ -278,6 +278,10 @@ margin-top: 5px;
     margin-top: 8px;
 }
 
+.wishlist-product-link:hover{
+    text-decoration: underline;
+}
+
 /* 404 500 page */
 .error-page {
     background-color: #FFFFFF;

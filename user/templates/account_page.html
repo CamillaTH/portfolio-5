@@ -23,7 +23,7 @@
                             {% for product in wishlist.products.all %}
                                 <li class="wishlist-element">
                                     <img src="{{ product.image.url }}" alt="{{ product.name }}" width="100">
-                                    <a href="{% url 'product_detail' product_id=product.id %}">{{ product.name }}</a>
+                                    <a class="wishlist-product-link" href="{% url 'product_detail' product_id=product.id %}">{{ product.name }}</a>
                                     <form action="{% url 'remove_from_wishlist' product.id %}" method="post" class="remove-from-wishlist-form">
                                         {% csrf_token %}
                                         <button class="remove-from-wishlist-btn" type="submit">Remove</button>
