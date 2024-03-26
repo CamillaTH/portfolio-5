@@ -4,11 +4,13 @@ from django.contrib.staticfiles.views import serve
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
-from home.views import custom_404_view
+from home.views import custom_404_view, custom_500_view
 from user.views import account_page, add_to_wishlist , remove_from_wishlist
 from .sitemaps import CustomSitemap
 
 handler404 = custom_404_view
+
+handler500 = custom_500_view
 
 sitemaps = {
     'custom': CustomSitemap,

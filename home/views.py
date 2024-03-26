@@ -12,9 +12,13 @@ def index(request):
 
 def custom_404_view(request, exception):
     ''' render 404 page '''
-    #This custom 404 view i never called have tried alot of different apporaches..
+    #When this custom view is called it throws 500 instead of some strange reason
     print("call 404")
     return render(request, '404.html', status=404)
+
+def custom_500_view(request):
+    ''' render 500 page '''
+    return render(request, '500.html', status=500)
 
 # Configure Mailchimp
 MAILCHIMP_API_KEY = os.environ.get('MAILCHIMP_API_KEY')
