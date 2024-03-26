@@ -46,17 +46,19 @@ def remove_entry_from_cart(request, item_id):
     """Remove the entry from the cart"""
 
     try:
-        size = None
-        if 'product_size' in request.POST:
-            size = request.POST['product_size']
+        size = request.POST.get('product_size')
         cart = request.session.get('cart', {})
 
         if size:
-            del cart[item_id]['entries_by_size'][size]
-            if not cart[item_id]['entries_by_size']:
-                cart.pop(item_id)
+            if item_id in cart and 'entries_by_size' in cart[item_id]:
+                del cart[item_id]['entries_by_size'][size]
+                if not cart[item_id]['entries_by_size']:
+                    cart.pop(item_id)
+            else:
+                # Product doesn't have sizes, just remove it from the cart
+                cart.pop(item_id, None)
         else:
-            cart.pop(item_id)
+            cart.pop(item_id, None)
 
         request.session['cart'] = cart
         return HttpResponse(status=200)
@@ -69,7 +71,6 @@ def update_cart_quantity(request, item_id):
 
     quantity = int(request.POST.get('quantity'))
     size = None
-    
     if 'product_size' in request.POST:
         size = request.POST['product_size']
     cart = request.session.get('cart', {})

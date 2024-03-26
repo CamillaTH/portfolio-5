@@ -3,7 +3,7 @@ from products.models import Product
 from django.shortcuts import get_object_or_404
 from decimal import Decimal
 
-def cart_entries(request):
+'''def cart_entries(request):
     """Cart entries context processor"""
 
     cart = request.session.get('cart', {})
@@ -42,9 +42,9 @@ def cart_entries(request):
         'products_count': products_count,  # Include products_count in the context
     }
 
-    return context
+    return context'''
 
-'''def cart_entries(request):
+def cart_entries(request):
     """Cart entries context processor"""
 
     cart = request.session.get('cart', {})
@@ -83,4 +83,4 @@ def cart_entries(request):
         'products_count': products_count,  # Include products_count in the context
     }
 
-    return context'''
+    return context
