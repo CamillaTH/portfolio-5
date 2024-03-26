@@ -79,6 +79,22 @@
                                 <input type="hidden" name="redirect_url" value="{{ request.path }}">
                             </div>
                         </form>
+                        <div class="wishlist-wrapper row">
+                            {% if user.is_authenticated %}
+                                {% if product in user.wishlist.products.all %}
+                                    <span class="already-added-text bold">This product is already added to your wishlist!</span>
+                                {% else %}
+                                    <form action="{% url 'add_to_wishlist' product_id=product.id %}" method="POST">
+                                        {% csrf_token %}
+                                        <!-- Add to Wishlist button -->
+                                        <button type="submit" class="add-to-wishlist-button">Add to Wishlist</button>
+                                    </form>
+                                {% endif %}
+                                <a class="product-detail-accountlink" href="{% url 'account_page' %}">See your wishlist at your account page <i class="fa-solid fa-user"></i></a>
+                            {% else %}
+                                <p class="bold">Log in or create an account to add products to wishlist!</p>
+                            {% endif %}
+                        </div>
                     </div>
                 </div>
             </div>

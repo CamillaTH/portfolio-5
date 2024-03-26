@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="account-page container">
+    <div class="row justify-content-center">
+        
+        <div class="col-md-6">
+            <h1 class="bold">Welcome to Account page, {{ user.username }}</h1>
+            <h3>Change Password</h3>
+            <form method="post">
+                {% csrf_token %}
+                {{ password_form.as_p }}
+                <button type="submit" class="btn btn-primary">Change Password</button>
+            </form>
+            </div>
+            <div class="wishlist-warpper col-md-6">  
+            <h2 class="bold">Wishlist</h2>
+            <ul>
+                {% for wishlist in wishlists %}
+                    <li class="wishlist-list">
+                        <h4>{{ wishlist }}</h4>
+                        <ul>
+                            {% for product in wishlist.products.all %}
+                                <li class="wishlist-element">
+                                    <img src="{{ product.image.url }}" alt="{{ product.name }}" width="100">
+                                    <a href="{% url 'product_detail' product_id=product.id %}">{{ product.name }}</a>
+                                    <form action="{% url 'remove_from_wishlist' product.id %}" method="post" class="remove-from-wishlist-form">
+                                        {% csrf_token %}
+                                        <button class="remove-from-wishlist-btn" type="submit">Remove</button>
+                                    </form>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

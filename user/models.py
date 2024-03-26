@@ -19,7 +19,7 @@ class ExtendedUser(models.Model):
 
 class Wishlist(models.Model):
     ''' Model that stores users wishlist with products '''
-    user = models.OneToOneField(ExtendedUser, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     products = models.ManyToManyField(Product)
 
     def __str__(self):

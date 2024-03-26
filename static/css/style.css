@@ -234,6 +234,46 @@ button:hover {
     border-radius: 12px;
 }
 
+.wishlist-wrapper 
+{
+    margin-top: 12px;
+}
+
+
+.product-detail-accountlink {
+margin-top: 5px;
+}
+
+.product-detail-accountlink:hover {
+    
+    text-decoration: underline;
+}
+
+/* account page */
+.account-page {
+    border-top: 2px solid #0d67b4;
+    background-color: #FFFFFF;
+}
+
+.wishlist-warpper {
+    border-left: 2px solid #0d67b4;
+}
+
+.wishlist-element {
+    border-bottom: 1px solid #0d67b4;
+    list-style-type: none;
+}
+
+.wishlist-list {
+    list-style-type: none;
+}
+
+.remove-from-wishlist-btn {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    min-width: 100px
+}
+
 /* footer */
 
 .site-footer {
@@ -500,6 +540,13 @@ button:hover {
         margin-right: 5px;
     }
 
+}
+
+@media (max-width: 769px) {
+
+    .wishlist-warpper {
+        border-left: none;
+    }
 }
 
 
