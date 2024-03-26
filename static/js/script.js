@@ -188,4 +188,12 @@ $(function(){
             }, 2000);
         }
     });
+
+    // Function to remove the success message after a delay
+    setTimeout(function() {
+        var successMessage = document.getElementById('success-message');
+        if (successMessage) {
+            successMessage.remove();
+        }
+    }, 3000);
 });

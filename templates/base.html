@@ -190,8 +190,18 @@
         <div class="row header-message">
             <h2 class="text-center bold">{{ header_message.message }} {{ free_shipping_threshold }} €</h2>
         </div>
+        <div class="add-to-cart-message row">
+            {% if messages %}
+            <div class="messages">
+                {% for message in messages %}
+                    <div class="alert alert-success" role="alert" id="success-message">
+                        {{ message }} 
+                    </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
     </header>
-    
     {% if messages %}
         <div class="message-container"></div>
     {% endif %}

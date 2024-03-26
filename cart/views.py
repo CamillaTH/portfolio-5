@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib import messages
 from django.http import HttpResponse
 from django.views.decorators.http import require_POST
 from products.models import Product
@@ -40,6 +41,9 @@ def add_to_cart(request, product_id):
             cart[product_id] = quantity
 
     request.session['cart'] = cart
+
+    messages.success(request, 'product added')
+
     return redirect(redirect_url)
 
 def remove_entry_from_cart(request, item_id):
