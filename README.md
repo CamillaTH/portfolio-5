@@ -128,6 +128,23 @@ Admin configured site message for the cart.
 Configured site message shown on cart page
 ![alt text](static/images/readme/readme-cart--message-site.png)
 
+__WISHLIST__
+
+Logged in user have the opertunity to add and remove products to their wishlist
+
+User clicks button and product is added to wishlist (if user clicks link below it redirects it to account page so user can view its wishlist)
+![alt text](static/images/readme/readme-wishlist-addtowishlist.png)
+
+If user is not logged in show text you need to be logged in to add to wishlist (user clicks link and redirects to create account page)
+![alt text](static/images/readme/readme-wishlist-logintoaddtowishlist.png)
+
+If product is already added to wishlist show message to user
+![alt text](static/images/readme/readme-wishlist-productalready-added.png)
+
+Account view where user can view its wishlist and remove products from the wishlist
+![alt text](static/images/readme/readme-wishlist-accountwishlist.png)
+
+
 ### Marketing strategies
 Zamashop facebook page
 ![alt text](static/images/readme/readme-zamashopFacebookpage.png)
