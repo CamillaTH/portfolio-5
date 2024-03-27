@@ -86,11 +86,10 @@ Agile development was used during development of this site project board can be 
 * jQuery is used as JS framwork.
 * Boostrap is used as HTML/css framwork.
 * Stripe as payment provider
-
+* AWS S3 bucket for static files storage
 
 
 ## Features 
-
 
 ### Exsiting Features
  
@@ -99,6 +98,8 @@ Agile development was used during development of this site project board can be 
 * Users search products
 * users can filter products
 * Users can sort products
+* user can add products to wishlist
+* admin can set global site messages from admin panel
 * users can add products to cart
 * Users can add products with different sizes(if they have)
 * Users can view cart
