@@ -172,18 +172,33 @@ Create engaging and shareable content, such as videos, infographics, and article
   
 #### Email Marketing: 
 Build an email list by offering discounts or exclusive content in exchange for subscribers.
-Send personalized and targeted emails with new arrivals, promotions, and special offers. Send emails using mailchimp
+Send personalized and targeted emails with new arrivals, promotions, and special offers. Send emails using mailchimp. Mailchimp is integreated to the django app when a user inserts its email and click the button the email will be added to the mailchimp audience list.
+
+Campaign template
+
+ ![alt text](static/images/readme/mailchimpimage.png)
+
+user subscribes to newsletter
+
+ ![alt text](static/images/readme/readme-subscribe-to-newsletter.png)
+
+Email address is immediately added to zamashops audience list
+
+ ![alt text](static/images/readme/readme-audience-mailchimp.png)
+
+
+Employee chooses an campaign and send out emails to the emails in the audience list
+
+ ![alt text](static/images/readme/readme-mailchimp-campaigndashboard.png)
+
+
+Confirmation that the campaign have been emailed out.
+
+![alt text](static/images/readme/readme-mailchimp-campaign-sent-confirmation.png)
+
 
 ### SEO
 Robots.txt is added and allowed to crawl trough whole site
-
-### Not implemented Features 
- There are some features that i planned but did not have time to implement.
- * newsletter signup started with mailchimp but not integrated yet
- ![alt text](static/images/readme/mailchimpimage.png)
-
- * remove from cart currently a bug. 
- * move media to AWS
 
 ## Testing
  
@@ -211,13 +226,11 @@ lighthouse score can definitely be imporoved.
 * JS format: Fixed formating of Js code using https://beautifier.io
 
 
-### Bugs
+### Known Bugs
 
 Bugs that are confimred and not fixed:
-* remeoving products 
-* submitting an order, stripe recives payment but order confirmation is not rendered
-* favioicon now showing when deployed to Heroku (known problem)
-* custom 404 page does not render, have done accrodring to the pattern need to be investigated more..
+
+* custom 404 page does not render it instead throws 500 page and that page is custom.
 
 
 ### Overal thoughts 
