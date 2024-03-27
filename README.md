@@ -8,7 +8,35 @@
 * site is live at : https://protfolio-5-a19d9a5d5d8d.herokuapp.com/
 * To enter admin panel go to -> https://protfolio-5-a19d9a5d5d8d.herokuapp.com//admin
 
+### Deployment process
 
+
+* Login to heroku (https://id.heroku.com/login)
+
+* click new -> create new app  
+
+![alt text](static/images/readme/readme-heroku-newapp.png) 
+
+* Choose app name and region
+
+![alt text](static/images/readme/readme-heroku-create-new-app.png) 
+
+
+* Choose "Github" as deployment method and search desired github project and click "connect"
+
+![alt text](static/images/readme/readme-heroku-deployment-method.png) 
+
+* Go to "settings" tab and in "buildpacks" section add heroku/python (shuld be pre selected) and heroku/nodejs
+
+![alt text](static/images/readme/readme-heroku-settingsbuildpacks.png) 
+
+* Go back to "deploy" tab choose desired branch and click "deploy branch"
+
+![alt text](static/images/readme/readme-heroku-deploybranch.png) 
+
+* click viewlog and looks that everything looks ok, heroku will print out the deployed URL in the end of the log.
+
+![alt text](static/images/readme/readme-heroku-deploy-log.png) 
 
 ### clone repository locally (HTTPS)
 
